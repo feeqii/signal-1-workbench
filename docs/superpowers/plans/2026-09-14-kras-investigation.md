@@ -44,14 +44,14 @@ type Comparison = { schemaVersion: 1; leftId: string; rightId: string; kind: str
 type PriorBaseline = { name:string; version:string; sourceUrl:string; description:string; limitations:string[]; scores:{variant:string;score:number}[] };
 ```
 
-- [ ] Write scientific tests before implementation: wrong reference AA, conflicting substitutions, duplicate aliases, underdetermined/collinear fits, missing residues and rigid-transform RMSD below 0.001 Å. Include at least 30 expected mapping cases spanning six edge classes and label expectations as software fixtures unless externally reviewed.
-- [ ] Run `python -m unittest discover -s scientific/tests -v` and capture expected missing-behavior failure.
-- [ ] Fetch and freeze original public paired KRAS abundance and DARPin K55 measurements with attribution. Verify full reference equality, sequence hashes, duplicate/paired overlap and measurement meaning; record absent replicate/error information. Reconcile DOI against original paper. Do not invent values if an upstream is unavailable.
-- [ ] Select and freeze two actual structures. Resolve mmCIF chain/entity/author/label identities and use source mapping/sequence validation. Record construct mutations, ligands, unresolved positions and context differences. These are descriptive comparisons, not mutation causality.
-- [ ] Implement rigid Cα superposition with proper rotation and explicit correspondence/fit mask; compare actual pair against Gemmi or an independent implementation. Store rotation for column-vector convention: `mapped = rotation @ right + translation`.
-- [ ] Implement a reproducible BLOSUM62 substitution prior using the published matrix with citation; label it substitution compatibility, not abundance/binding prediction or newly trained model. It is the small supported baseline inference for M1.
-- [ ] Worker CLI reads one JSON request on stdin and writes one JSON result on stdout: `{"type":"comparison","leftId": "...","rightId":"...","positions":[...]}` or `{"type":"baseline","variants":["G12D"]}`. IDs restricted to curated manifest; stderr for diagnostics; no arbitrary filenames/URLs.
-- [ ] Run focused tests and full scientific suite. Commit task-owned files and report evidence, gaps and hashes.
+- [x] Write scientific tests before implementation: wrong reference AA, conflicting substitutions, duplicate aliases, underdetermined/collinear fits, missing residues and rigid-transform RMSD below 0.001 Å. Include at least 30 expected mapping cases spanning six edge classes and label expectations as software fixtures unless externally reviewed.
+- [x] Run `python -m unittest discover -s scientific/tests -v` and capture expected missing-behavior failure.
+- [x] Fetch and freeze original public paired KRAS abundance and DARPin K55 measurements with attribution. Verify full reference equality, sequence hashes, duplicate/paired overlap and measurement meaning; record absent replicate/error information. Reconcile DOI against original paper. Do not invent values if an upstream is unavailable.
+- [x] Select and freeze two actual structures. Resolve mmCIF chain/entity/author/label identities and use source mapping/sequence validation. Record construct mutations, ligands, unresolved positions and context differences. These are descriptive comparisons, not mutation causality.
+- [x] Implement rigid Cα superposition with proper rotation and explicit correspondence/fit mask; compare actual pair against Gemmi or an independent implementation. Store rotation for column-vector convention: `mapped = rotation @ right + translation`.
+- [x] Implement a reproducible BLOSUM62 substitution prior using the published matrix with citation; label it substitution compatibility, not abundance/binding prediction or newly trained model. It is the small supported baseline inference for M1.
+- [x] Worker CLI reads one JSON request on stdin and writes one JSON result on stdout: `{"type":"comparison","leftId": "...","rightId":"...","positions":[...]}` or `{"type":"baseline","variants":["G12D"]}`. IDs restricted to curated manifest; stderr for diagnostics; no arbitrary filenames/URLs.
+- [x] Run focused tests and full scientific suite. Commit task-owned files and report evidence, gaps and hashes.
 
 ## Task 2: Validated state, durable storage, jobs and exports
 
@@ -71,14 +71,14 @@ type InvestigationState = {
 type SavedInvestigation = {id:string;revision:number;createdAt:string;updatedAt:string;state:InvestigationState};
 ```
 
-- [ ] Add failing Node tests for variant validation, sorted/deduplicated reference selections, snapshot validation, optimistic revision conflict, restart persistence, export/import integrity, lease recovery, cancellation and stale finalization.
-- [ ] Install pinned runtime/test dependencies; set `test: tsx --test tests/*.test.ts`, `lint: eslint src tests scripts --ignore-pattern public/vendor`.
-- [ ] Implement strict bounded schemas; validate every residue/variant against the frozen reference and every view ID against manifest. Missing numerical evidence stays null. Validate confidence arrays independently with bounds and dimensions.
-- [ ] Use local persistent PGlite under ignored .signal1/data; schema migrations create investigations, revisions and jobs. Content hashes use canonical JSON; transactions guarantee revision and save atomicity. Missing/corrupt assets fail explicitly.
-- [ ] Implement deterministic job input keys, queued/running/completed/failed/cancelled states, leases, attempts capped at 3, subprocess deadline, cancellation and token-checked atomic finalization. A standalone worker polls claimed jobs; API may trigger one bounded execution in local mode. Job inputs include investigation revision and exact asset hashes; UI only applies matching jobs.
-- [ ] Export a bounded JSON bundle containing state, reference, source manifest, results and small supported assets plus hashes. Import verifies every included byte/hash, reference and schema and rejects unsupported/path-traversal assets. Generate a Markdown experiment brief and CSV panel from saved state.
-- [ ] Disable obsolete public socket/story mutation surfaces in local investigation mode and remove old active workbench references.
-- [ ] Run Node tests and fresh-process storage/worker checks. Commit task-owned files and report.
+- [x] Add failing Node tests for variant validation, sorted/deduplicated reference selections, snapshot validation, optimistic revision conflict, restart persistence, export/import integrity, lease recovery, cancellation and stale finalization.
+- [x] Install pinned runtime/test dependencies; set `test: tsx --test tests/*.test.ts`, `lint: eslint src tests scripts --ignore-pattern public/vendor`.
+- [x] Implement strict bounded schemas; validate every residue/variant against the frozen reference and every view ID against manifest. Missing numerical evidence stays null. Validate confidence arrays independently with bounds and dimensions.
+- [x] Use local persistent PGlite under ignored .signal1/data; schema migrations create investigations, revisions and jobs. Content hashes use canonical JSON; transactions guarantee revision and save atomicity. Missing/corrupt assets fail explicitly.
+- [x] Implement deterministic job input keys, queued/running/completed/failed/cancelled states, leases, attempts capped at 3, subprocess deadline, cancellation and token-checked atomic finalization. A standalone worker polls claimed jobs; API may trigger one bounded execution in local mode. Job inputs include investigation revision and exact asset hashes; UI only applies matching jobs.
+- [x] Export a bounded JSON bundle containing state, reference, source manifest, results and small supported assets plus hashes. Import verifies every included byte/hash, reference and schema and rejects unsupported/path-traversal assets. Generate a Markdown experiment brief and CSV panel from saved state.
+- [x] Disable obsolete public socket/story mutation surfaces in local investigation mode and remove old active workbench references.
+- [x] Run Node tests and fresh-process storage/worker checks. Commit task-owned files and report.
 
 ## Task 3: Complete linked molecular workspace
 
@@ -86,14 +86,14 @@ type SavedInvestigation = {id:string;revision:number;createdAt:string;updatedAt:
 
 **Interfaces:** Consumes Task 1 manifest/observations/comparison/baseline and Task 2 API/state types. Only the controller integrates package/dependency changes. Uses bundled pinned Mol* and local font assets.
 
-- [ ] Test pure selection, stale job matching, panel editing and export/brief behavior before implementation. For reversible presentational styling, verify through rendered inspection rather than mirroring CSS in tests.
-- [ ] Implement warm ivory/charcoal/forest workspace: compact header, investigation rail, central dark molecular stage, attached sequence track, evidence dock, right inspector. Use local IBM Plex Sans/Mono with restrained serif editorial title. Desktop three-column, narrow stacked layout, visible keyboard focus and reduced motion.
-- [ ] Load the real case with clear source/date context. No giant landing hero and no actionability score. Present paired assay table and plot with axes/units; selection of a variant selects all substitution positions in sequence and mapped 3D.
-- [ ] Bundle/pin Mol*, one instance per viewport, serialize load updates, unsubscribe/dispose at teardown. Use mapped loci and reverse click mapping. Apply validated right-structure transform in overlay; split shares the fitted coordinate frame. Explicit camera focus and persist/recover camera.
-- [ ] Display numerical comparison count/RMSD/scope/exclusions and displacement by reference residue. Provide fit scope controls with durable computation status, cancel/retry and input-revision checks.
-- [ ] Inspector shows measured values with source links, substitution prior with limitations and researcher-authored findings. Coverage and absent confidence are explicit. No fabricated pLDDT/PAE for experimental structures.
-- [ ] Create/edit question; select/resume investigation; autosave with visible saved/error/conflict states; keep edits on failure. Create/delete findings; add candidates and positive/negative controls, rationale, expected observations and repeats. Export JSON/Markdown/CSV and import validated bundle.
-- [ ] Verify integration against real API, tests, typecheck, lint and browser if permitted. Commit task-owned files and report limits honestly.
+- [x] Test pure selection, stale job matching, panel editing and export/brief behavior before implementation. For reversible presentational styling, verify through rendered inspection rather than mirroring CSS in tests.
+- [x] Implement warm ivory/charcoal/forest workspace: compact header, investigation rail, central dark molecular stage, attached sequence track, evidence dock, right inspector. Use local IBM Plex Sans/Mono with restrained serif editorial title. Desktop three-column, narrow stacked layout, visible keyboard focus and reduced motion.
+- [x] Load the real case with clear source/date context. No giant landing hero and no actionability score. Present paired assay table and plot with axes/units; selection of a variant selects all substitution positions in sequence and mapped 3D.
+- [x] Bundle/pin Mol*, one instance per viewport, serialize load updates, unsubscribe/dispose at teardown. Use mapped loci and reverse click mapping. Apply validated right-structure transform in overlay; split shares the fitted coordinate frame. Explicit camera focus and persist/recover camera.
+- [x] Display numerical comparison count/RMSD/scope/exclusions and displacement by reference residue. Provide fit scope controls with durable computation status, cancel/retry and input-revision checks.
+- [x] Inspector shows measured values with source links, substitution prior with limitations and researcher-authored findings. Coverage and absent confidence are explicit. No fabricated pLDDT/PAE for experimental structures.
+- [x] Create/edit question; select/resume investigation; autosave with visible saved/error/conflict states; keep edits on failure. Create/delete findings; add candidates and positive/negative controls, rationale, expected observations and repeats. Export JSON/Markdown/CSV and import validated bundle.
+- [x] Verify integration against real API, tests, typecheck, lint and browser if permitted. Commit task-owned files and report limits honestly.
 
 ## Task 4: Integration, CI and release evidence
 
@@ -105,3 +105,12 @@ type SavedInvestigation = {id:string;revision:number;createdAt:string;updatedAt:
 - [ ] Run independent code review, fix important findings and recheck affected behavior.
 - [ ] Document exact start/setup/worker/test commands, data provenance and supported limits. Add CI for application/science checks. Report each M1 gate as passed, partial or awaiting external validation; do not claim expert review or browser performance without evidence.
 - [ ] Leave a reviewable feature branch and a runnable local app; do not push, merge or deploy without instruction.
+
+
+## Execution notes · 14 September 2026
+
+- Task 1 is implemented and independently reviewed. ProteinGym curated source CSVs are frozen; original replicate-level supplementary workbook and external expert review remain outside available evidence.
+- Task 2 uses `node --import tsx` for tests and the application-owned recurring queue, avoiding a second database owner. Kernel ownership is tied to the Node file descriptor and verified after forced process death.
+- Task 3 is implemented. Final production browser checks and scoped re-review are tracked in the implementation status report.
+- The active generic resolver is retired along with story/socket endpoints. Only the bounded curated case is supported.
+- Task 4 retains the worktree/branch as the plan requires. No push, merge, deployment or training is part of this implementation.

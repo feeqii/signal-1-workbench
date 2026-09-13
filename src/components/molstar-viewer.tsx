@@ -78,6 +78,7 @@ export function MolstarViewer(props: Props) {
     const subscriptions: { unsubscribe: () => void }[] = [];
     const setup = async () => {
       if (disposed || !host.current || !canvas.current) return;
+      setMessage("Loading experimental coordinates…");
       const spec = DefaultPluginSpec();
       spec.behaviors = spec.behaviors.filter(
         (b) => b.transformer !== PluginBehaviors.Camera.FocusLoci,
@@ -298,6 +299,8 @@ export function MolstarViewer(props: Props) {
   return (
     <div className="molecular-viewport" ref={host}>
       <canvas
+        // Disposing the old plugin loses its WebGL context; a new fit needs a fresh canvas.
+        key={sceneKey}
         ref={canvas}
         aria-label="Interactive experimental KRAS structure. Drag to rotate; click a residue to select it."
         tabIndex={0}

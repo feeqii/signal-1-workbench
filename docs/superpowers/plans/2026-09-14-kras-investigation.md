@@ -99,18 +99,20 @@ type SavedInvestigation = {id:string;revision:number;createdAt:string;updatedAt:
 
 **Files:** README.md, .env.example, .github/workflows/checks.yml, docs/revamp/implementation-status.md, tests/integration fixtures and focused regression tests.
 
-- [ ] Run full build/typecheck/lint/Node/scientific tests and fix failures with regression cases.
-- [ ] Exercise local production API create/edit/conflict/job/cancel/save/restart/export/import using actual persisted data.
-- [ ] Inspect browser via permitted CUA only. Verify linked selection, keyboard/narrow layout and lifecycle where available; retain explicit unverified status if browser policy blocks access.
-- [ ] Run independent code review, fix important findings and recheck affected behavior.
-- [ ] Document exact start/setup/worker/test commands, data provenance and supported limits. Add CI for application/science checks. Report each M1 gate as passed, partial or awaiting external validation; do not claim expert review or browser performance without evidence.
-- [ ] Leave a reviewable feature branch and a runnable local app; do not push, merge or deploy without instruction.
+- [x] Run full build/typecheck/lint/Node/scientific tests and fix failures with regression cases.
+- [x] Exercise local production API create/edit/conflict/job/cancel/save/restart/export/import using actual persisted data.
+- [x] Inspect browser via permitted CUA only. Verify linked selection, keyboard/narrow layout and lifecycle where available; retain explicit unverified status if browser policy blocks access.
+- [x] Run independent code review, fix important findings and recheck affected behavior.
+- [x] Document exact start/setup/worker/test commands, data provenance and supported limits. Add CI for application/science checks. Report each M1 gate as passed, partial or awaiting external validation; do not claim expert review or browser performance without evidence.
+- [x] Leave a reviewable feature branch and a runnable local app; do not push, merge or deploy without instruction.
 
 
 ## Execution notes · 14 September 2026
 
 - Task 1 is implemented and independently reviewed. ProteinGym curated source CSVs are frozen; original replicate-level supplementary workbook and external expert review remain outside available evidence.
 - Task 2 uses `node --import tsx` for tests and the application-owned recurring queue, avoiding a second database owner. Kernel ownership is tied to the Node file descriptor and verified after forced process death.
-- Task 3 is implemented. Final production browser checks and scoped re-review are tracked in the implementation status report.
+- Task 3 is implemented. Production browser checks and all scoped re-reviews passed; evidence and remaining external gates are recorded in the implementation status report.
 - The active generic resolver is retired along with story/socket endpoints. Only the bounded curated case is supported.
 - Task 4 retains the worktree/branch as the plan requires. No push, merge, deployment or training is part of this implementation.
+
+Final implementation verification: 52 application tests and 17 scientific tests pass; lint, types, production build, API round trip/copy/cancellation and rendered fit transitions pass. Branch and local preview retained as planned. External expert, prospective usefulness, complete accessibility and instrumented performance gates remain explicitly pending.

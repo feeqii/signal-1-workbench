@@ -1,0 +1,26 @@
+{
+  "at": "2026-09-13T16:01:05.638Z",
+  "reference": "https://raw.githubusercontent.com/OATML-Markslab/ProteinGym/main/reference_files/DMS_substitutions.csv",
+  "referenceSha256": "a8f498011532a74aa9fe556a50555a75e928c5837d19c06a87592ae04049b308",
+  "assays": [
+    "RASK_HUMAN_Weng_2022_abundance",
+    "RASK_HUMAN_Weng_2022_binding-DARPin_K55"
+  ],
+  "assayLengths": [
+    188,
+    188
+  ],
+  "uniprotIsoform": "P01116-2",
+  "isoformLength": 188,
+  "exactMatch": [
+    true,
+    true
+  ],
+  "sequenceSha256": "9a0ed04ef46e15865a90f9dd0808d7d12c94746c66b0f41228aa2e62516ccbca",
+  "displayedCanonical": {
+    "accession": "P01116",
+    "isoform": "P01116-1",
+    "length": 189
+  },
+  "scope": "metadata and reference-sequence check only; no assay scores downloaded"
+}

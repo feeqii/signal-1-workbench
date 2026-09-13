@@ -120,3 +120,12 @@ test('variant search ranks the exact normalized match before combination matches
   assert.deepEqual(view.filterObservations(rows, 'g12d', [14], true).map(row => row.variant), ['G12D:V14I']);
   assert.deepEqual(view.filterObservations(rows, '', [], false), rows);
 });
+
+test('residue selection highlights overlapping variants while exact variants remain distinct', () => {
+  assert.equal(typeof view.evidenceSelection, 'function');
+  const row = { variant: 'G12D:V14I', positions: [12, 14] };
+  assert.equal(view.evidenceSelection(row, null, [14]), 'residue');
+  assert.equal(view.evidenceSelection(row, 'G12D:V14I', [12, 14]), 'exact');
+  assert.equal(view.evidenceSelection(row, 'G12D', [12]), 'residue');
+  assert.equal(view.evidenceSelection(row, null, [22]), 'none');
+});

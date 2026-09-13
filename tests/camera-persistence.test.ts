@@ -46,3 +46,16 @@ test('camera observer disposal cancels pending saves and unsubscribes from rende
   t.mock.timers.tick(500);
   assert.equal(saved.length, 0);
 });
+
+test('opening an investigation without a camera resets to the canonical frame', () => {
+  assert.equal(typeof persistence.applyInvestigationCamera, 'function');
+  const camera = new Camera(undefined, Viewport.create(0, 0, 640, 480));
+  camera.setState({ radius: 20 }, 0);
+  const canonical = camera.getSnapshot();
+  camera.setState({ position: Vec3.create(3, 4, 100), target: Vec3.create(5, 6, 7) }, 0);
+  persistence.applyInvestigationCamera(camera, null, canonical);
+  assert.deepEqual(camera.getSnapshot(), canonical);
+  const savedCamera = { ...canonical, position: Vec3.create(20, 30, 50) };
+  persistence.applyInvestigationCamera(camera, savedCamera, canonical);
+  assert.deepEqual(camera.getSnapshot(), savedCamera);
+});

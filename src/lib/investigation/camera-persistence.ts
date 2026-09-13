@@ -20,3 +20,12 @@ export function observeSettledCamera<T>(
     subscription.unsubscribe();
   };
 }
+
+export function applyInvestigationCamera<T>(
+  camera: { setState: (snapshot: T, durationMs: number) => void },
+  saved: T | null,
+  canonical: T | null,
+): void {
+  const next = saved ?? canonical;
+  if (next) camera.setState(next, 0);
+}

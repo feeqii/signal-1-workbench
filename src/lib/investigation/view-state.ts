@@ -142,3 +142,12 @@ export function filterObservations<T extends { variant: string; positions: numbe
       Number(left.variant.toUpperCase() === normalized),
   );
 }
+
+export function evidenceSelection(
+  observation: { variant: string; positions: number[] },
+  selectedVariant: string | null,
+  selectedPositions: number[],
+): 'exact' | 'residue' | 'none' {
+  if (observation.variant === selectedVariant) return 'exact';
+  return observation.positions.some(position => selectedPositions.includes(position)) ? 'residue' : 'none';
+}

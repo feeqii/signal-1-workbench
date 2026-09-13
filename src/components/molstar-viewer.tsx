@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { observeSettledCamera } from "@/lib/investigation/camera-persistence";
+import { applyInvestigationCamera, observeSettledCamera } from "@/lib/investigation/camera-persistence";
 import { PluginContext } from "molstar/lib/mol-plugin/context";
 import { PluginBehaviors } from "molstar/lib/mol-plugin/behavior";
 import { DefaultPluginSpec } from "molstar/lib/mol-plugin/spec";
@@ -29,6 +29,7 @@ import {
 } from "@/lib/investigation/view-state";
 
 type Props = {
+  investigationId: string;
   structures: CaseManifest["structures"];
   frameStructure: CaseManifest["structures"][number];
   comparison: Comparison;
@@ -256,12 +257,13 @@ export function MolstarViewer(props: Props) {
     markSelection();
   });
   useEffect(() => {
-    if (props.camera)
-      plugin.current?.canvas3d?.camera.setState(
-        props.camera as Partial<Camera.Snapshot>,
-        0,
-      );
-  }, [props.camera]);
+    const camera = plugin.current?.canvas3d?.camera;
+    if (camera) applyInvestigationCamera(
+      camera,
+      props.camera as Partial<Camera.Snapshot> | null,
+      frameCamera.current,
+    );
+  }, [props.camera, props.investigationId]);
   useEffect(() => {
     if (!props.focus) return;
     const loci = loaded.current.map(lociFor).filter((l) => l.elements.length);

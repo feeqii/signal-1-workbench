@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   DraftSession,
+  withDraftTransition,
   request,
   type CaseData,
   type ClientJob,
@@ -48,6 +49,7 @@ export function Workbench() {
     null,
   );
   const briefRef = useRef<HTMLElement>(null);
+  const [transitioning, setTransitioning] = useState(false);
   const session = useRef<DraftSession | null>(null),
     [saveStatus, setSaveStatus] = useState("Loading case…"),
     [error, setError] = useState(""),
@@ -159,7 +161,7 @@ export function Workbench() {
   const edit = useCallback((next: InvestigationState) => {
     const current = session.current;
     if (!current) return;
-    current.edit(next);
+    if (!current.edit(next)) return;
     setState(next);
     setSaveStatus("Unsaved changes");
     try {
@@ -284,35 +286,39 @@ export function Workbench() {
     return () => document.removeEventListener("keydown", listener);
   }, [brief]);
   async function openInvestigation(id: string) {
-    if (!data) return;
+    const current = session.current;
+    if (!data || !current || current.locked || transitioning) return;
     setWorking(true);
+    setTransitioning(true);
     try {
-      await flush();
-      await install(
-        await request<SavedInvestigation>(`/api/investigations/${id}`),
-        data,
-      );
+      await withDraftTransition(current,
+        () => request<SavedInvestigation>(`/api/investigations/${id}`),
+        value => install(value, data), flush);
     } catch (error) {
       setError(explain(error));
     } finally {
       setWorking(false);
+      setTransitioning(false);
     }
   }
   async function createInvestigation(copy = false) {
-    if (!data) return;
+    const current = session.current;
+    if (!data || !current || current.locked || transitioning) return;
     setWorking(true);
+    setTransitioning(true);
     try {
-      if (!copy) await flush();
-      const next = await request<SavedInvestigation>("/api/investigations", {
-        method: "POST",
-        body: JSON.stringify(copy ? { state: session.current?.state } : {}),
-      });
-      await install(next, data);
-      await refreshList();
+      await withDraftTransition(current,
+        () => request<SavedInvestigation>("/api/investigations", {
+          method: "POST",
+          body: JSON.stringify(copy ? { state: current.state } : {}),
+        }),
+        async value => { await install(value, data); await refreshList(); },
+        copy ? () => Promise.resolve() : flush);
     } catch (error) {
       setError(explain(error));
     } finally {
       setWorking(false);
+      setTransitioning(false);
     }
   }
   async function run(type: "comparison" | "baseline") {
@@ -392,21 +398,21 @@ export function Workbench() {
     }
   }
   async function importFile(file?: File) {
-    if (!file || !data) return;
+    const current = session.current;
+    if (!file || !data || !current || current.locked || transitioning) return;
     setWorking(true);
+    setTransitioning(true);
     try {
-      await flush();
-      const bundle = await file.text();
-      const restored = await request<SavedInvestigation>(
-        "/api/investigations/import",
-        { method: "POST", body: bundle },
-      );
-      await install(restored, data);
-      await refreshList();
+      await withDraftTransition(current,
+        async () => request<SavedInvestigation>("/api/investigations/import", {
+          method: "POST", body: await file.text(),
+        }),
+        async value => { await install(value, data); await refreshList(); }, flush);
     } catch (error) {
       setError(explain(error));
     } finally {
       setWorking(false);
+      setTransitioning(false);
     }
   }
   function chooseVariant(variant: string) {
@@ -572,7 +578,8 @@ export function Workbench() {
           </button>
         </div>
       )}
-      <div className="workspace">
+      {transitioning && <div className="job-status" role="status">Switching investigation… Editing resumes when the destination is ready.</div>}
+      <div className="workspace" inert={transitioning} aria-busy={transitioning}>
         <aside className="investigation-rail">
           <div className="rail-heading">
             <span className="eyebrow">01 / Investigation</span>
@@ -742,6 +749,7 @@ export function Workbench() {
             <div className={`viewport-grid ${state.view.mode}`}>
               {state.view.mode === "overlay" ? (
                 <MolstarViewer
+                  investigationId={saved.id}
                   key="overlay"
                   structures={structures}
                   frameStructure={manifest.structures.find(
@@ -762,6 +770,7 @@ export function Workbench() {
                       {s.pdbId} · chain {s.chainId}
                     </span>
                     <MolstarViewer
+                  investigationId={saved.id}
                       structures={[s]}
                       frameStructure={manifest.structures.find(
                         (s) => s.id === comparison.leftId,

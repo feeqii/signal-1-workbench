@@ -1,6 +1,6 @@
 "use client";
-import { useMemo, useState } from "react";
-import { filterObservations } from "@/lib/investigation/view-state";
+import React, { useMemo, useState } from "react";
+import { evidenceSelection, filterObservations } from "@/lib/investigation/view-state";
 import type { Comparison, Observation } from "@/lib/investigation/schema";
 export function Evidence({
   observations,
@@ -98,6 +98,7 @@ export function Evidence({
         </label>
         <span>{filtered.length.toLocaleString()} variants</span>
       </div>
+      {positions.length > 0 && <p className="caption">Green highlights: variants at selected residues. Amber: exact selected variant.</p>}
       {tab === "paired" && (
         <>
           <svg
@@ -131,14 +132,15 @@ export function Evidence({
                 cy={y(o.binding!)}
                 r={o.variant === selectedVariant ? 5 : 2.4}
                 className={
-                  o.variant === selectedVariant ? "selected-dot" : "assay-dot"
+                  evidenceSelection(o, selectedVariant, positions) === "exact"
+                    ? "selected-dot"
+                    : evidenceSelection(o, selectedVariant, positions) === "residue"
+                      ? "linked-dot"
+                      : "assay-dot"
                 }
                 onClick={() => onVariant(o.variant)}
               >
-                <title>
-                  {o.variant}: abundance {o.abundance?.toFixed(3)}, binding{" "}
-                  {o.binding?.toFixed(3)}
-                </title>
+                <title>{`${o.variant}: abundance ${o.abundance?.toFixed(3)}, binding ${o.binding?.toFixed(3)}`}</title>
               </circle>
             ))}
           </svg>
@@ -168,6 +170,7 @@ export function Evidence({
                   <tr
                     key={o.variant}
                     data-selected={o.variant === selectedVariant}
+                    data-linked={evidenceSelection(o, selectedVariant, positions) === "residue"}
                   >
                     <td>
                       <button

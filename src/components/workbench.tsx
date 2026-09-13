@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   DraftSession,
+  completedJobDisposition,
   withDraftTransition,
   request,
   type CaseData,
@@ -20,7 +21,6 @@ import {
   addPanelVariant,
   briefText,
   editPanel,
-  jobMatches,
   selectPosition,
   selectVariant,
 } from "@/lib/investigation/view-state";
@@ -217,16 +217,14 @@ export function Workbench() {
     if (!job) return;
     if (job.status === "completed" && job.result) {
       const current = session.current;
-      if (!current) return;
+      if (!current || transitioning) return;
+      const disposition = completedJobDisposition(job, current);
+      if (disposition === "defer") return;
       try {
         localStorage.removeItem(`signal-job-${job.investigationId}`);
       } catch {}
-      if (
-        current.state.comparisonJobId === job.id ||
-        current.state.baselineJobId === job.id
-      )
-        return;
-      if (!current.dirty && jobMatches(job, current.saved)) {
+      if (disposition === "attached") return;
+      if (disposition === "attach") {
         if (job.type === "comparison") setComparison(job.result as Comparison);
         else setBaseline(job.result as PriorBaseline);
         edit({
@@ -262,7 +260,7 @@ export function Workbench() {
       active = false;
       clearTimeout(timer);
     };
-  }, [job, edit]);
+  }, [job, edit, transitioning]);
   useEffect(() => {
     if (!brief) return;
     const listener = (event: KeyboardEvent) => {

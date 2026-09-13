@@ -101,3 +101,30 @@ test('a failed investigation transition retains and unlocks the original draft',
   assert.equal(session.state.title, 'Retained draft');
   assert.equal(session.edit({ ...state, title: 'Can edit again' }), true);
 });
+
+test('completed jobs remain deferred during a switch and attach after a failed load unlocks the original draft', async () => {
+  assert.equal(typeof client.completedJobDisposition, 'function');
+  const session = new client.DraftSession(saved);
+  const job = { id: 'job-one', investigationId: saved.id, inputRevision: saved.revision, status: 'completed' };
+  let rejectLoad: (error: Error) => void = () => {};
+  const loading = new Promise<string>((_resolve, reject) => { rejectLoad = reject; });
+  const transition = client.withDraftTransition(session, () => loading, () => {});
+  assert.equal(client.completedJobDisposition(job, session), 'defer');
+  rejectLoad(new Error('Destination failed'));
+  await assert.rejects(transition, /Destination failed/);
+  assert.equal(client.completedJobDisposition(job, session), 'attach');
+  session.edit({ ...state, title: 'Unsaved scientific edit' });
+  assert.equal(client.completedJobDisposition(job, session), 'stale');
+});
+
+test('a successful switch cannot consume the previous investigation completed job', async () => {
+  assert.equal(typeof client.completedJobDisposition, 'function');
+  const previous = new client.DraftSession(saved);
+  const destination = new client.DraftSession({ ...saved, id: 'destination' });
+  const job = { id: 'job-one', investigationId: saved.id, inputRevision: saved.revision, status: 'completed' };
+  let current = previous;
+  await client.withDraftTransition(previous, async () => destination, next => { current = next; });
+  assert.equal(client.completedJobDisposition(job, current), 'defer');
+  // Reopening its original investigation still permits processing the retained recovery ID.
+  assert.equal(client.completedJobDisposition(job, new client.DraftSession(saved)), 'attach');
+});

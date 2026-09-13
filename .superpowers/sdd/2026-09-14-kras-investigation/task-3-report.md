@@ -44,3 +44,9 @@ Targeted UI/client tests now total **12 passing**. Full TypeScript and owned-fil
 - Assay SVG titles now receive one template-string child. An actual React server-render test was observed producing an empty title and the React 19 warning before the fix, then the expected variant/measured-value tooltip after the fix.
 
 The four UI/client test files now have **17 passing tests**; scoped ESLint passes. Full TypeScript checking at this point reports only an independently edited controller-owned `tests/support/store-owner.ts:28` optional-call error, communicated to the controller without changing that file. Controller has already verified working WebGL after reload, editable findings/panels, reopening and brief keyboard containment. These latest corrections still require focused CUA reinspection.
+
+## Transition/completed-job race follow-up
+
+Completed calculations now defer every completion side effect while a switch is active, while the source draft is locked, or when the installed investigation is not the job owner. This check precedes recovery-pointer deletion, result display and draft attachment. The completion effect also reruns when transition state clears, so a failed destination load reprocesses the pending job after unlock with the original exact-revision/dirty checks. A successful switch leaves the original investigation's pending-job pointer intact for recovery on reopen.
+
+Two regression tests were observed failing before the disposition guard was implemented. They exercise completion during a failing transition, dirty-state rejection after unlock, successful switching to another investigation, and eligibility on reopening the original. All **19 targeted UI/client tests pass**, along with full TypeScript checking and scoped ESLint.

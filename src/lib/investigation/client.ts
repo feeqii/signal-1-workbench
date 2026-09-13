@@ -111,3 +111,12 @@ export async function withDraftTransition<T>(
     session.locked = false;
   }
 }
+
+export function completedJobDisposition(
+  job: { id: string; investigationId: string; inputRevision: number; status: string },
+  session: DraftSession,
+): 'defer' | 'attached' | 'attach' | 'stale' {
+  if (session.locked || job.investigationId !== session.saved.id || job.status !== 'completed') return 'defer';
+  if (session.state.comparisonJobId === job.id || session.state.baselineJobId === job.id) return 'attached';
+  return !session.dirty && job.inputRevision === session.saved.revision ? 'attach' : 'stale';
+}

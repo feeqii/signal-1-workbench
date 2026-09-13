@@ -13,12 +13,18 @@ export async function GET(request: Request) {
   try {
     guardLocal(request);
     const manifest = await loadCase();
-    const [observationsBytes, comparisonBytes, baselineBytes] =
+    // Validate coordinates and maps before permitting the initial viewer to load.
+    const assets = new Map(
       await Promise.all(
-        ["observations.json", "comparison.json", "baseline.json"].map((path) =>
-          readCaseAsset(manifest, path),
+        manifest.assets.map(
+          async (asset) =>
+            [asset.path, await readCaseAsset(manifest, asset.path)] as const,
         ),
-      );
+      ),
+    );
+    const observationsBytes = assets.get("observations.json")!;
+    const comparisonBytes = assets.get("comparison.json")!;
+    const baselineBytes = assets.get("baseline.json")!;
     const observations = z
       .array(
         z.object({

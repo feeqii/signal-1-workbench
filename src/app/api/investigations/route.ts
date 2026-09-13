@@ -3,6 +3,7 @@ import { apiError, guardLocal, readJson } from "@/lib/investigation/api";
 import { getStore } from "@/lib/investigation/store";
 import { initialState, validateState } from "@/lib/investigation/schema";
 import { kickJobs } from "@/lib/investigation/jobs";
+import { createWithLocalResults } from "@/lib/investigation/links";
 import { z } from "zod";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -24,9 +25,11 @@ export async function POST(request: Request) {
       .parse(await readJson(request));
     const manifest = await loadCase();
     return Response.json(
-      await (
-        await getStore()
-      ).create(validateState(body.state ?? initialState(manifest), manifest)),
+      await createWithLocalResults(
+        validateState(body.state ?? initialState(manifest), manifest),
+        manifest,
+        await getStore(),
+      ),
       { status: 201 },
     );
   } catch (error) {

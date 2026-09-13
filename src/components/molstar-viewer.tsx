@@ -1,6 +1,9 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { applyInvestigationCamera, observeSettledCamera } from "@/lib/investigation/camera-persistence";
+import {
+  applyInvestigationCamera,
+  observeSettledCamera,
+} from "@/lib/investigation/camera-persistence";
 import { PluginContext } from "molstar/lib/mol-plugin/context";
 import { PluginBehaviors } from "molstar/lib/mol-plugin/behavior";
 import { DefaultPluginSpec } from "molstar/lib/mol-plugin/spec";
@@ -41,6 +44,19 @@ type Props = {
   reset: number;
 };
 type Loaded = { structure: Structure; mapping: ResidueMapping[] };
+
+function cameraSnapshot(
+  saved: InvestigationState["view"]["camera"],
+): Partial<Camera.Snapshot> | null {
+  return saved
+    ? {
+        ...saved,
+        position: Vec3.create(...saved.position),
+        target: Vec3.create(...saved.target),
+        up: Vec3.create(...saved.up),
+      }
+    : null;
+}
 export function MolstarViewer(props: Props) {
   const host = useRef<HTMLDivElement>(null),
     canvas = useRef<HTMLCanvasElement>(null),
@@ -188,16 +204,20 @@ export function MolstarViewer(props: Props) {
         local.canvas3d?.camera.getFocus(center, radius) ?? null;
       if (latest.current.camera)
         local.canvas3d?.camera.setState(
-          latest.current.camera as Partial<Camera.Snapshot>,
+          cameraSnapshot(latest.current.camera)!,
           0,
         );
       else if (frameCamera.current)
         local.canvas3d?.camera.setState(frameCamera.current, 0);
       const renderedCamera = local.canvas3d?.camera;
       if (renderedCamera) {
-        const stopObserving = observeSettledCamera(renderedCamera, (snapshot) => {
-          if (!disposed) latest.current.onCamera(JSON.parse(JSON.stringify(snapshot)));
-        });
+        const stopObserving = observeSettledCamera(
+          renderedCamera,
+          (snapshot) => {
+            if (!disposed)
+              latest.current.onCamera(JSON.parse(JSON.stringify(snapshot)));
+          },
+        );
         subscriptions.push({ unsubscribe: stopObserving });
       }
       markSelection();
@@ -258,11 +278,12 @@ export function MolstarViewer(props: Props) {
   });
   useEffect(() => {
     const camera = plugin.current?.canvas3d?.camera;
-    if (camera) applyInvestigationCamera(
-      camera,
-      props.camera as Partial<Camera.Snapshot> | null,
-      frameCamera.current,
-    );
+    if (camera)
+      applyInvestigationCamera(
+        camera,
+        cameraSnapshot(props.camera),
+        frameCamera.current,
+      );
   }, [props.camera, props.investigationId]);
   useEffect(() => {
     if (!props.focus) return;
@@ -275,10 +296,7 @@ export function MolstarViewer(props: Props) {
       plugin.current?.canvas3d?.camera.setState(frameCamera.current, 0);
   }, [props.reset]);
   return (
-    <div
-      className="molecular-viewport"
-      ref={host}
-    >
+    <div className="molecular-viewport" ref={host}>
       <canvas
         ref={canvas}
         aria-label="Interactive experimental KRAS structure. Drag to rotate; click a residue to select it."

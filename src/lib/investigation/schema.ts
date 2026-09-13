@@ -150,11 +150,35 @@ const vector = z.tuple([
   z.number().finite(),
 ]);
 const camera = z
-  .record(
-    z.string().max(80),
-    z.union([z.number().finite(), z.boolean(), z.string().max(80), vector]),
-  )
-  .refine((v) => Object.keys(v).length <= 30, "Camera has too many fields.");
+  .object({
+    position: vector,
+    target: vector,
+    up: vector,
+    mode: z.enum(["perspective", "orthographic"]).optional(),
+    fov: z.number().finite().gt(0).lt(Math.PI).optional(),
+    radius: z.number().finite().nonnegative().optional(),
+    radiusMax: z.number().finite().nonnegative().optional(),
+    fog: z.number().finite().min(0).max(100).optional(),
+    clipFar: z.boolean().optional(),
+    minNear: z.number().finite().positive().optional(),
+    minFar: z.number().finite().nonnegative().optional(),
+  })
+  .strict()
+  .refine((value) => {
+    const direction = value.position.map(
+      (coordinate, i) => coordinate - value.target[i],
+    );
+    const cross = [
+      direction[1] * value.up[2] - direction[2] * value.up[1],
+      direction[2] * value.up[0] - direction[0] * value.up[2],
+      direction[0] * value.up[1] - direction[1] * value.up[0],
+    ];
+    return (
+      Math.hypot(...direction) > 1e-8 &&
+      Math.hypot(...value.up) > 1e-8 &&
+      Math.hypot(...cross) > 1e-8
+    );
+  }, "Camera position, target and up must define a valid view.");
 export const investigationSchema = z
   .object({
     schemaVersion: z.literal(1),

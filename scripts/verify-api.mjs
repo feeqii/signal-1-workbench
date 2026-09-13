@@ -108,6 +108,43 @@ const finalized = await request(
 assert.equal(finalized.status, 200);
 const exported = await request(`/api/investigations/${saved.id}/export`);
 assert.equal(exported.status, 200);
+const copied = await request("/api/investigations", {
+  state: finalized.data.state,
+});
+assert.equal(copied.status, 201, JSON.stringify(copied.data));
+assert.notEqual(copied.data.state.comparisonJobId, job.id);
+const copiedJob = (
+  await request(`/api/jobs/${copied.data.state.comparisonJobId}`)
+).data;
+assert.equal(copiedJob.investigationId, copied.data.id);
+assert.deepEqual(copiedJob.result, job.result);
+assert.equal(
+  (
+    await request(
+      `/api/investigations/${copied.data.id}`,
+      {
+        expectedRevision: 1,
+        state: { ...copied.data.state, title: "Verification · edited copy" },
+      },
+      "PUT",
+    )
+  ).status,
+  200,
+);
+assert.equal(
+  (await request(`/api/investigations/${copied.data.id}/export`)).status,
+  200,
+);
+for (const format of ["md", "csv", "mvsx"]) {
+  const response = await fetch(
+    new URL(`/api/investigations/${saved.id}/export?format=${format}`, base),
+  );
+  assert.equal(response.status, 200, `${format} export`);
+  assert.ok(
+    (await response.arrayBuffer()).byteLength > 100,
+    `${format} contains the saved record`,
+  );
+}
 const imported = await request("/api/investigations/import", exported.data);
 assert.equal(imported.status, 201, JSON.stringify(imported.data));
 assert.deepEqual(imported.data.state.panel, state.panel);
@@ -118,5 +155,5 @@ const recovered = await request(
 );
 assert.deepEqual(recovered.data.result, job.result);
 console.log(
-  "Verified real case, saved revisions, conflicts, durable computation and reproducible bundle import.",
+  "Verified real case, saved revisions, conflicts, durable computation, editable copies, four exports and reproducible bundle import.",
 );

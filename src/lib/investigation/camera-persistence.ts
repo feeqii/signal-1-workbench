@@ -22,10 +22,26 @@ export function observeSettledCamera<T>(
 }
 
 export function applyInvestigationCamera<T>(
-  camera: { setState: (snapshot: T, durationMs: number) => void },
+  camera: { setState: (snapshot: T, durationMs: number) => void; getSnapshot: () => T },
   saved: T | null,
   canonical: T | null,
 ): void {
   const next = saved ?? canonical;
-  if (next) camera.setState(next, 0);
+  if (next && !cameraSnapshotsEqual(camera.getSnapshot(), next)) camera.setState(next, 0);
+}
+
+
+/** JSONB can reorder object fields; camera identity depends on values and vector order. */
+export function cameraSnapshotsEqual(left: unknown, right: unknown): boolean {
+  if (left === right) return true;
+  if (left === null || right === null || typeof left !== "object" || typeof right !== "object") return false;
+  if (Array.isArray(left) || Array.isArray(right)) {
+    return Array.isArray(left) && Array.isArray(right) && left.length === right.length &&
+      left.every((value, index) => cameraSnapshotsEqual(value, right[index]));
+  }
+  const leftObject = left as Record<string, unknown>;
+  const rightObject = right as Record<string, unknown>;
+  const keys = Object.keys(leftObject);
+  return keys.length === Object.keys(rightObject).length && keys.every(key =>
+    Object.prototype.hasOwnProperty.call(rightObject, key) && cameraSnapshotsEqual(leftObject[key], rightObject[key]));
 }

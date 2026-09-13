@@ -59,3 +59,35 @@ test('opening an investigation without a camera resets to the canonical frame', 
   persistence.applyInvestigationCamera(camera, savedCamera, canonical);
   assert.deepEqual(camera.getSnapshot(), savedCamera);
 });
+
+test('camera equality survives an actual JSONB round trip without ignoring changed vector values', async () => {
+  assert.equal(typeof persistence.cameraSnapshotsEqual, 'function');
+  const { PGlite } = await import('@electric-sql/pglite');
+  const db = await PGlite.create();
+  try {
+    const camera = new Camera(undefined, Viewport.create(0, 0, 640, 480));
+    camera.setState({ radius: 20, position: Vec3.create(3, 4, 70) }, 0);
+    const snapshot = camera.getSnapshot();
+    const result = await db.query<{ camera: Camera.Snapshot }>('SELECT $1::jsonb AS camera', [JSON.stringify(snapshot)]);
+    const restored = result.rows[0].camera;
+    assert.notEqual(JSON.stringify(snapshot), JSON.stringify(restored));
+    assert.equal(persistence.cameraSnapshotsEqual(snapshot, restored), true);
+    assert.equal(persistence.cameraSnapshotsEqual(snapshot, { ...restored, position: [3, 4, 71] }), false);
+    assert.equal(persistence.cameraSnapshotsEqual(null, restored), false);
+  } finally {
+    await db.close();
+  }
+});
+
+test('a reordered saved camera does not reapply state to Molstar after normalization', () => {
+  const camera = new Camera(undefined, Viewport.create(0, 0, 640, 480));
+  camera.setState({ radius: 20 }, 0);
+  const snapshot = camera.getSnapshot();
+  const restored = Object.fromEntries(Object.entries(snapshot).reverse()) as unknown as Camera.Snapshot;
+  let notifications = 0;
+  const subscription = camera.stateChanged.subscribe(() => { notifications++; });
+  notifications = 0;
+  persistence.applyInvestigationCamera(camera, restored, null);
+  assert.equal(notifications, 0);
+  subscription.unsubscribe();
+});

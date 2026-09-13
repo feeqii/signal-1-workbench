@@ -25,6 +25,7 @@ import {
   selectVariant,
 } from "@/lib/investigation/view-state";
 import { Evidence } from "@/components/investigation/evidence";
+import { cameraSnapshotsEqual } from "@/lib/investigation/camera-persistence";
 const MolstarViewer = dynamic(
   () => import("./molstar-viewer").then((m) => m.MolstarViewer),
   {
@@ -514,7 +515,7 @@ export function Workbench() {
     const current = session.current?.state;
     if (
       current &&
-      JSON.stringify(camera) !== JSON.stringify(current.view.camera)
+      !cameraSnapshotsEqual(camera, current.view.camera)
     )
       edit({ ...current, view: { ...current.view, camera } });
   };

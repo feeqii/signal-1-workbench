@@ -1,0 +1,2484 @@
+[
+  {
+    "referencePosition": 1,
+    "referenceAA": "M",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 4,
+    "authSeq": 1,
+    "insertionCode": "",
+    "observedAA": "M",
+    "ca": [
+      98.665,
+      100.872,
+      9.839
+    ]
+  },
+  {
+    "referencePosition": 2,
+    "referenceAA": "T",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 5,
+    "authSeq": 2,
+    "insertionCode": "",
+    "observedAA": "T",
+    "ca": [
+      95.623,
+      102.94,
+      9.004
+    ]
+  },
+  {
+    "referencePosition": 3,
+    "referenceAA": "E",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 6,
+    "authSeq": 3,
+    "insertionCode": "",
+    "observedAA": "E",
+    "ca": [
+      92.519,
+      102.222,
+      11.115
+    ]
+  },
+  {
+    "referencePosition": 4,
+    "referenceAA": "Y",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 7,
+    "authSeq": 4,
+    "insertionCode": "",
+    "observedAA": "Y",
+    "ca": [
+      89.091,
+      102.533,
+      9.457
+    ]
+  },
+  {
+    "referencePosition": 5,
+    "referenceAA": "K",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 8,
+    "authSeq": 5,
+    "insertionCode": "",
+    "observedAA": "K",
+    "ca": [
+      86.003,
+      103.029,
+      11.664
+    ]
+  },
+  {
+    "referencePosition": 6,
+    "referenceAA": "L",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 9,
+    "authSeq": 6,
+    "insertionCode": "",
+    "observedAA": "L",
+    "ca": [
+      83.174,
+      101.25,
+      9.788
+    ]
+  },
+  {
+    "referencePosition": 7,
+    "referenceAA": "V",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 10,
+    "authSeq": 7,
+    "insertionCode": "",
+    "observedAA": "V",
+    "ca": [
+      79.532,
+      101.271,
+      10.979
+    ]
+  },
+  {
+    "referencePosition": 8,
+    "referenceAA": "V",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 11,
+    "authSeq": 8,
+    "insertionCode": "",
+    "observedAA": "V",
+    "ca": [
+      76.921,
+      98.766,
+      9.742
+    ]
+  },
+  {
+    "referencePosition": 9,
+    "referenceAA": "V",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 12,
+    "authSeq": 9,
+    "insertionCode": "",
+    "observedAA": "V",
+    "ca": [
+      73.378,
+      100.15,
+      9.853
+    ]
+  },
+  {
+    "referencePosition": 10,
+    "referenceAA": "G",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 13,
+    "authSeq": 10,
+    "insertionCode": "",
+    "observedAA": "G",
+    "ca": [
+      69.937,
+      99.113,
+      8.625
+    ]
+  },
+  {
+    "referencePosition": 11,
+    "referenceAA": "A",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 14,
+    "authSeq": 11,
+    "insertionCode": "",
+    "observedAA": "A",
+    "ca": [
+      66.558,
+      97.741,
+      9.647
+    ]
+  },
+  {
+    "referencePosition": 12,
+    "referenceAA": "G",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 15,
+    "authSeq": 12,
+    "insertionCode": "",
+    "observedAA": "V",
+    "ca": [
+      65.915,
+      94.727,
+      11.837
+    ]
+  },
+  {
+    "referencePosition": 13,
+    "referenceAA": "G",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 16,
+    "authSeq": 13,
+    "insertionCode": "",
+    "observedAA": "G",
+    "ca": [
+      66.737,
+      91.367,
+      10.218
+    ]
+  },
+  {
+    "referencePosition": 14,
+    "referenceAA": "V",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 17,
+    "authSeq": 14,
+    "insertionCode": "",
+    "observedAA": "V",
+    "ca": [
+      68.441,
+      92.518,
+      7.004
+    ]
+  },
+  {
+    "referencePosition": 15,
+    "referenceAA": "G",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 18,
+    "authSeq": 15,
+    "insertionCode": "",
+    "observedAA": "G",
+    "ca": [
+      71.702,
+      90.68,
+      7.63
+    ]
+  },
+  {
+    "referencePosition": 16,
+    "referenceAA": "K",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 19,
+    "authSeq": 16,
+    "insertionCode": "",
+    "observedAA": "K",
+    "ca": [
+      73.94,
+      93.309,
+      9.292
+    ]
+  },
+  {
+    "referencePosition": 17,
+    "referenceAA": "S",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 20,
+    "authSeq": 17,
+    "insertionCode": "",
+    "observedAA": "S",
+    "ca": [
+      75.205,
+      90.771,
+      11.813
+    ]
+  },
+  {
+    "referencePosition": 18,
+    "referenceAA": "A",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 21,
+    "authSeq": 18,
+    "insertionCode": "",
+    "observedAA": "A",
+    "ca": [
+      75.451,
+      87.943,
+      9.303
+    ]
+  },
+  {
+    "referencePosition": 19,
+    "referenceAA": "L",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 22,
+    "authSeq": 19,
+    "insertionCode": "",
+    "observedAA": "L",
+    "ca": [
+      77.502,
+      90.162,
+      6.918
+    ]
+  },
+  {
+    "referencePosition": 20,
+    "referenceAA": "T",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 23,
+    "authSeq": 20,
+    "insertionCode": "",
+    "observedAA": "T",
+    "ca": [
+      79.805,
+      91.19,
+      9.694
+    ]
+  },
+  {
+    "referencePosition": 21,
+    "referenceAA": "I",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 24,
+    "authSeq": 21,
+    "insertionCode": "",
+    "observedAA": "I",
+    "ca": [
+      80.407,
+      87.684,
+      11.088
+    ]
+  },
+  {
+    "referencePosition": 22,
+    "referenceAA": "Q",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 25,
+    "authSeq": 22,
+    "insertionCode": "",
+    "observedAA": "Q",
+    "ca": [
+      81.036,
+      86.538,
+      7.515
+    ]
+  },
+  {
+    "referencePosition": 23,
+    "referenceAA": "L",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 26,
+    "authSeq": 23,
+    "insertionCode": "",
+    "observedAA": "L",
+    "ca": [
+      83.755,
+      89.19,
+      7.16
+    ]
+  },
+  {
+    "referencePosition": 24,
+    "referenceAA": "I",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 27,
+    "authSeq": 24,
+    "insertionCode": "",
+    "observedAA": "I",
+    "ca": [
+      85.339,
+      88.398,
+      10.552
+    ]
+  },
+  {
+    "referencePosition": 25,
+    "referenceAA": "Q",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 28,
+    "authSeq": 25,
+    "insertionCode": "",
+    "observedAA": "Q",
+    "ca": [
+      84.882,
+      84.597,
+      10.955
+    ]
+  },
+  {
+    "referencePosition": 26,
+    "referenceAA": "N",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 29,
+    "authSeq": 26,
+    "insertionCode": "",
+    "observedAA": "N",
+    "ca": [
+      83.973,
+      83.415,
+      7.394
+    ]
+  },
+  {
+    "referencePosition": 27,
+    "referenceAA": "H",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 30,
+    "authSeq": 27,
+    "insertionCode": "",
+    "observedAA": "H",
+    "ca": [
+      80.874,
+      81.663,
+      8.598
+    ]
+  },
+  {
+    "referencePosition": 28,
+    "referenceAA": "F",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 31,
+    "authSeq": 28,
+    "insertionCode": "",
+    "observedAA": "F",
+    "ca": [
+      77.169,
+      82.169,
+      8.154
+    ]
+  },
+  {
+    "referencePosition": 29,
+    "referenceAA": "V",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 32,
+    "authSeq": 29,
+    "insertionCode": "",
+    "observedAA": "V",
+    "ca": [
+      74.922,
+      82.391,
+      11.183
+    ]
+  },
+  {
+    "referencePosition": 30,
+    "referenceAA": "D",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 33,
+    "authSeq": 30,
+    "insertionCode": "",
+    "observedAA": "D",
+    "ca": [
+      71.426,
+      81.055,
+      10.378
+    ]
+  },
+  {
+    "referencePosition": 31,
+    "referenceAA": "E",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 34,
+    "authSeq": 31,
+    "insertionCode": "",
+    "observedAA": "E",
+    "ca": [
+      70.173,
+      82.177,
+      13.832
+    ]
+  },
+  {
+    "referencePosition": 32,
+    "referenceAA": "Y",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 35,
+    "authSeq": 32,
+    "insertionCode": "",
+    "observedAA": "Y",
+    "ca": [
+      68.623,
+      85.553,
+      14.676
+    ]
+  },
+  {
+    "referencePosition": 33,
+    "referenceAA": "D",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 36,
+    "authSeq": 33,
+    "insertionCode": "",
+    "observedAA": "D",
+    "ca": [
+      70.211,
+      87.081,
+      17.794
+    ]
+  },
+  {
+    "referencePosition": 34,
+    "referenceAA": "P",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 37,
+    "authSeq": 34,
+    "insertionCode": "",
+    "observedAA": "P",
+    "ca": [
+      69.04,
+      90.725,
+      18.046
+    ]
+  },
+  {
+    "referencePosition": 35,
+    "referenceAA": "T",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 38,
+    "authSeq": 35,
+    "insertionCode": "",
+    "observedAA": "T",
+    "ca": [
+      72.037,
+      93.065,
+      18.219
+    ]
+  },
+  {
+    "referencePosition": 36,
+    "referenceAA": "I",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 39,
+    "authSeq": 36,
+    "insertionCode": "",
+    "observedAA": "I",
+    "ca": [
+      72.317,
+      95.948,
+      20.665
+    ]
+  },
+  {
+    "referencePosition": 37,
+    "referenceAA": "E",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 40,
+    "authSeq": 37,
+    "insertionCode": "",
+    "observedAA": "E",
+    "ca": [
+      75.878,
+      97.141,
+      19.74
+    ]
+  },
+  {
+    "referencePosition": 38,
+    "referenceAA": "D",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 41,
+    "authSeq": 38,
+    "insertionCode": "",
+    "observedAA": "D",
+    "ca": [
+      78.895,
+      94.884,
+      18.962
+    ]
+  },
+  {
+    "referencePosition": 39,
+    "referenceAA": "S",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 42,
+    "authSeq": 39,
+    "insertionCode": "",
+    "observedAA": "S",
+    "ca": [
+      82.445,
+      95.726,
+      17.866
+    ]
+  },
+  {
+    "referencePosition": 40,
+    "referenceAA": "Y",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 43,
+    "authSeq": 40,
+    "insertionCode": "",
+    "observedAA": "Y",
+    "ca": [
+      84.708,
+      93.59,
+      15.787
+    ]
+  },
+  {
+    "referencePosition": 41,
+    "referenceAA": "R",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 44,
+    "authSeq": 41,
+    "insertionCode": "",
+    "observedAA": "R",
+    "ca": [
+      88.317,
+      94.053,
+      14.748
+    ]
+  },
+  {
+    "referencePosition": 42,
+    "referenceAA": "K",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 45,
+    "authSeq": 42,
+    "insertionCode": "",
+    "observedAA": "K",
+    "ca": [
+      90.102,
+      92.706,
+      11.634
+    ]
+  },
+  {
+    "referencePosition": 43,
+    "referenceAA": "Q",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 46,
+    "authSeq": 43,
+    "insertionCode": "",
+    "observedAA": "Q",
+    "ca": [
+      93.503,
+      93.306,
+      10.179
+    ]
+  },
+  {
+    "referencePosition": 44,
+    "referenceAA": "V",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 47,
+    "authSeq": 44,
+    "insertionCode": "",
+    "observedAA": "V",
+    "ca": [
+      93.233,
+      92.969,
+      6.415
+    ]
+  },
+  {
+    "referencePosition": 45,
+    "referenceAA": "V",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 48,
+    "authSeq": 45,
+    "insertionCode": "",
+    "observedAA": "V",
+    "ca": [
+      94.968,
+      93.723,
+      3.114
+    ]
+  },
+  {
+    "referencePosition": 46,
+    "referenceAA": "I",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 49,
+    "authSeq": 46,
+    "insertionCode": "",
+    "observedAA": "I",
+    "ca": [
+      93.063,
+      96.122,
+      0.758
+    ]
+  },
+  {
+    "referencePosition": 47,
+    "referenceAA": "D",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 50,
+    "authSeq": 47,
+    "insertionCode": "",
+    "observedAA": "D",
+    "ca": [
+      94.6,
+      97.408,
+      -2.489
+    ]
+  },
+  {
+    "referencePosition": 48,
+    "referenceAA": "G",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 51,
+    "authSeq": 48,
+    "insertionCode": "",
+    "observedAA": "G",
+    "ca": [
+      97.963,
+      96.027,
+      -1.362
+    ]
+  },
+  {
+    "referencePosition": 49,
+    "referenceAA": "E",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 52,
+    "authSeq": 49,
+    "insertionCode": "",
+    "observedAA": "E",
+    "ca": [
+      98.011,
+      97.91,
+      2.014
+    ]
+  },
+  {
+    "referencePosition": 50,
+    "referenceAA": "T",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 53,
+    "authSeq": 50,
+    "insertionCode": "",
+    "observedAA": "T",
+    "ca": [
+      97.67,
+      96.486,
+      5.481
+    ]
+  },
+  {
+    "referencePosition": 51,
+    "referenceAA": "C",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 54,
+    "authSeq": 51,
+    "insertionCode": "",
+    "observedAA": "C",
+    "ca": [
+      94.916,
+      98.04,
+      7.482
+    ]
+  },
+  {
+    "referencePosition": 52,
+    "referenceAA": "L",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 55,
+    "authSeq": 52,
+    "insertionCode": "",
+    "observedAA": "L",
+    "ca": [
+      92.698,
+      97.576,
+      10.456
+    ]
+  },
+  {
+    "referencePosition": 53,
+    "referenceAA": "L",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 56,
+    "authSeq": 53,
+    "insertionCode": "",
+    "observedAA": "L",
+    "ca": [
+      88.899,
+      97.513,
+      10.263
+    ]
+  },
+  {
+    "referencePosition": 54,
+    "referenceAA": "D",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 57,
+    "authSeq": 54,
+    "insertionCode": "",
+    "observedAA": "D",
+    "ca": [
+      87.184,
+      98.61,
+      13.483
+    ]
+  },
+  {
+    "referencePosition": 55,
+    "referenceAA": "I",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 58,
+    "authSeq": 55,
+    "insertionCode": "",
+    "observedAA": "I",
+    "ca": [
+      83.604,
+      97.505,
+      12.762
+    ]
+  },
+  {
+    "referencePosition": 56,
+    "referenceAA": "L",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 59,
+    "authSeq": 56,
+    "insertionCode": "",
+    "observedAA": "L",
+    "ca": [
+      80.49,
+      98.497,
+      14.811
+    ]
+  },
+  {
+    "referencePosition": 57,
+    "referenceAA": "D",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 60,
+    "authSeq": 57,
+    "insertionCode": "",
+    "observedAA": "D",
+    "ca": [
+      77.381,
+      96.274,
+      14.154
+    ]
+  },
+  {
+    "referencePosition": 58,
+    "referenceAA": "T",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 61,
+    "authSeq": 58,
+    "insertionCode": "",
+    "observedAA": "T",
+    "ca": [
+      74.289,
+      98.179,
+      15.231
+    ]
+  },
+  {
+    "referencePosition": 59,
+    "referenceAA": "A",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 62,
+    "authSeq": 59,
+    "insertionCode": "",
+    "observedAA": "A",
+    "ca": [
+      70.705,
+      97.647,
+      16.345
+    ]
+  },
+  {
+    "referencePosition": 60,
+    "referenceAA": "G",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 63,
+    "authSeq": 60,
+    "insertionCode": "",
+    "observedAA": "G",
+    "ca": [
+      67.956,
+      97.618,
+      13.743
+    ]
+  },
+  {
+    "referencePosition": 61,
+    "referenceAA": "Q",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 64,
+    "authSeq": 61,
+    "insertionCode": "",
+    "observedAA": "Q",
+    "ca": [
+      65.367,
+      97.625,
+      16.585
+    ]
+  },
+  {
+    "referencePosition": 62,
+    "referenceAA": "E",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 65,
+    "authSeq": 62,
+    "insertionCode": "",
+    "observedAA": "E",
+    "ca": [
+      63.799,
+      101.092,
+      16.982
+    ]
+  },
+  {
+    "referencePosition": 63,
+    "referenceAA": "E",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 66,
+    "authSeq": 63,
+    "insertionCode": "",
+    "observedAA": "E",
+    "ca": [
+      63.962,
+      100.867,
+      20.829
+    ]
+  },
+  {
+    "referencePosition": 64,
+    "referenceAA": "Y",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 67,
+    "authSeq": 64,
+    "insertionCode": "",
+    "observedAA": "Y",
+    "ca": [
+      67.738,
+      101.599,
+      20.512
+    ]
+  },
+  {
+    "referencePosition": 65,
+    "referenceAA": "S",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 68,
+    "authSeq": 65,
+    "insertionCode": "",
+    "observedAA": "S",
+    "ca": [
+      67.338,
+      104.523,
+      18.061
+    ]
+  },
+  {
+    "referencePosition": 66,
+    "referenceAA": "A",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 69,
+    "authSeq": 66,
+    "insertionCode": "",
+    "observedAA": "A",
+    "ca": [
+      68.538,
+      107.022,
+      20.675
+    ]
+  },
+  {
+    "referencePosition": 67,
+    "referenceAA": "M",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 70,
+    "authSeq": 67,
+    "insertionCode": "",
+    "observedAA": "M",
+    "ca": [
+      72.042,
+      105.393,
+      20.513
+    ]
+  },
+  {
+    "referencePosition": 68,
+    "referenceAA": "R",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 71,
+    "authSeq": 68,
+    "insertionCode": "",
+    "observedAA": "R",
+    "ca": [
+      72.43,
+      106.31,
+      16.847
+    ]
+  },
+  {
+    "referencePosition": 69,
+    "referenceAA": "D",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 72,
+    "authSeq": 69,
+    "insertionCode": "",
+    "observedAA": "D",
+    "ca": [
+      73.755,
+      109.814,
+      17.454
+    ]
+  },
+  {
+    "referencePosition": 70,
+    "referenceAA": "Q",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 73,
+    "authSeq": 70,
+    "insertionCode": "",
+    "observedAA": "Q",
+    "ca": [
+      76.793,
+      108.419,
+      19.281
+    ]
+  },
+  {
+    "referencePosition": 71,
+    "referenceAA": "Y",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 74,
+    "authSeq": 71,
+    "insertionCode": "",
+    "observedAA": "Y",
+    "ca": [
+      77.906,
+      105.99,
+      16.605
+    ]
+  },
+  {
+    "referencePosition": 72,
+    "referenceAA": "M",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 75,
+    "authSeq": 72,
+    "insertionCode": "",
+    "observedAA": "M",
+    "ca": [
+      77.096,
+      108.484,
+      13.868
+    ]
+  },
+  {
+    "referencePosition": 73,
+    "referenceAA": "R",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 76,
+    "authSeq": 73,
+    "insertionCode": "",
+    "observedAA": "R",
+    "ca": [
+      79.506,
+      110.955,
+      15.567
+    ]
+  },
+  {
+    "referencePosition": 74,
+    "referenceAA": "T",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 77,
+    "authSeq": 74,
+    "insertionCode": "",
+    "observedAA": "T",
+    "ca": [
+      82.307,
+      108.307,
+      15.759
+    ]
+  },
+  {
+    "referencePosition": 75,
+    "referenceAA": "G",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 78,
+    "authSeq": 75,
+    "insertionCode": "",
+    "observedAA": "G",
+    "ca": [
+      82.008,
+      106.417,
+      12.455
+    ]
+  },
+  {
+    "referencePosition": 76,
+    "referenceAA": "E",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 79,
+    "authSeq": 76,
+    "insertionCode": "",
+    "observedAA": "E",
+    "ca": [
+      84.076,
+      107.311,
+      9.376
+    ]
+  },
+  {
+    "referencePosition": 77,
+    "referenceAA": "G",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 80,
+    "authSeq": 77,
+    "insertionCode": "",
+    "observedAA": "G",
+    "ca": [
+      81.975,
+      105.23,
+      7.034
+    ]
+  },
+  {
+    "referencePosition": 78,
+    "referenceAA": "F",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 81,
+    "authSeq": 78,
+    "insertionCode": "",
+    "observedAA": "F",
+    "ca": [
+      78.564,
+      103.646,
+      6.972
+    ]
+  },
+  {
+    "referencePosition": 79,
+    "referenceAA": "L",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 82,
+    "authSeq": 79,
+    "insertionCode": "",
+    "observedAA": "L",
+    "ca": [
+      77.515,
+      100.391,
+      5.339
+    ]
+  },
+  {
+    "referencePosition": 80,
+    "referenceAA": "C",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 83,
+    "authSeq": 80,
+    "insertionCode": "",
+    "observedAA": "C",
+    "ca": [
+      73.831,
+      101.012,
+      4.654
+    ]
+  },
+  {
+    "referencePosition": 81,
+    "referenceAA": "V",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 84,
+    "authSeq": 81,
+    "insertionCode": "",
+    "observedAA": "V",
+    "ca": [
+      72.211,
+      97.591,
+      4.407
+    ]
+  },
+  {
+    "referencePosition": 82,
+    "referenceAA": "F",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 85,
+    "authSeq": 82,
+    "insertionCode": "",
+    "observedAA": "F",
+    "ca": [
+      68.752,
+      96.561,
+      3.272
+    ]
+  },
+  {
+    "referencePosition": 83,
+    "referenceAA": "A",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 86,
+    "authSeq": 83,
+    "insertionCode": "",
+    "observedAA": "A",
+    "ca": [
+      67.397,
+      93.187,
+      2.308
+    ]
+  },
+  {
+    "referencePosition": 84,
+    "referenceAA": "I",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 87,
+    "authSeq": 84,
+    "insertionCode": "",
+    "observedAA": "I",
+    "ca": [
+      66.147,
+      92.629,
+      -1.255
+    ]
+  },
+  {
+    "referencePosition": 85,
+    "referenceAA": "N",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 88,
+    "authSeq": 85,
+    "insertionCode": "",
+    "observedAA": "N",
+    "ca": [
+      62.897,
+      91.052,
+      -0.017
+    ]
+  },
+  {
+    "referencePosition": 86,
+    "referenceAA": "N",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 89,
+    "authSeq": 86,
+    "insertionCode": "",
+    "observedAA": "N",
+    "ca": [
+      62.249,
+      93.837,
+      2.498
+    ]
+  },
+  {
+    "referencePosition": 87,
+    "referenceAA": "T",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 90,
+    "authSeq": 87,
+    "insertionCode": "",
+    "observedAA": "T",
+    "ca": [
+      60.753,
+      97.0,
+      0.977
+    ]
+  },
+  {
+    "referencePosition": 88,
+    "referenceAA": "K",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 91,
+    "authSeq": 88,
+    "insertionCode": "",
+    "observedAA": "K",
+    "ca": [
+      60.563,
+      98.77,
+      4.296
+    ]
+  },
+  {
+    "referencePosition": 89,
+    "referenceAA": "S",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 92,
+    "authSeq": 89,
+    "insertionCode": "",
+    "observedAA": "S",
+    "ca": [
+      64.304,
+      98.246,
+      4.902
+    ]
+  },
+  {
+    "referencePosition": 90,
+    "referenceAA": "F",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 93,
+    "authSeq": 90,
+    "insertionCode": "",
+    "observedAA": "F",
+    "ca": [
+      65.181,
+      99.773,
+      1.507
+    ]
+  },
+  {
+    "referencePosition": 91,
+    "referenceAA": "E",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 94,
+    "authSeq": 91,
+    "insertionCode": "",
+    "observedAA": "E",
+    "ca": [
+      62.96,
+      102.741,
+      2.255
+    ]
+  },
+  {
+    "referencePosition": 92,
+    "referenceAA": "D",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 95,
+    "authSeq": 92,
+    "insertionCode": "",
+    "observedAA": "D",
+    "ca": [
+      64.666,
+      103.104,
+      5.635
+    ]
+  },
+  {
+    "referencePosition": 93,
+    "referenceAA": "I",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 96,
+    "authSeq": 93,
+    "insertionCode": "",
+    "observedAA": "I",
+    "ca": [
+      68.006,
+      103.875,
+      4.055
+    ]
+  },
+  {
+    "referencePosition": 94,
+    "referenceAA": "H",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 97,
+    "authSeq": 94,
+    "insertionCode": "",
+    "observedAA": "H",
+    "ca": [
+      66.633,
+      107.445,
+      3.627
+    ]
+  },
+  {
+    "referencePosition": 95,
+    "referenceAA": "H",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 98,
+    "authSeq": 95,
+    "insertionCode": "",
+    "observedAA": "H",
+    "ca": [
+      66.176,
+      107.849,
+      7.426
+    ]
+  },
+  {
+    "referencePosition": 96,
+    "referenceAA": "Y",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 99,
+    "authSeq": 96,
+    "insertionCode": "",
+    "observedAA": "Y",
+    "ca": [
+      69.65,
+      106.49,
+      8.209
+    ]
+  },
+  {
+    "referencePosition": 97,
+    "referenceAA": "R",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 100,
+    "authSeq": 97,
+    "insertionCode": "",
+    "observedAA": "R",
+    "ca": [
+      71.191,
+      108.746,
+      5.532
+    ]
+  },
+  {
+    "referencePosition": 98,
+    "referenceAA": "E",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 101,
+    "authSeq": 98,
+    "insertionCode": "",
+    "observedAA": "E",
+    "ca": [
+      69.438,
+      111.853,
+      6.816
+    ]
+  },
+  {
+    "referencePosition": 99,
+    "referenceAA": "Q",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 102,
+    "authSeq": 99,
+    "insertionCode": "",
+    "observedAA": "Q",
+    "ca": [
+      70.486,
+      111.246,
+      10.411
+    ]
+  },
+  {
+    "referencePosition": 100,
+    "referenceAA": "I",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 103,
+    "authSeq": 100,
+    "insertionCode": "",
+    "observedAA": "I",
+    "ca": [
+      74.11,
+      110.64,
+      9.369
+    ]
+  },
+  {
+    "referencePosition": 101,
+    "referenceAA": "K",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 104,
+    "authSeq": 101,
+    "insertionCode": "",
+    "observedAA": "K",
+    "ca": [
+      74.204,
+      113.959,
+      7.484
+    ]
+  },
+  {
+    "referencePosition": 102,
+    "referenceAA": "R",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 105,
+    "authSeq": 102,
+    "insertionCode": "",
+    "observedAA": "R",
+    "ca": [
+      72.691,
+      115.888,
+      10.348
+    ]
+  },
+  {
+    "referencePosition": 103,
+    "referenceAA": "V",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 106,
+    "authSeq": 103,
+    "insertionCode": "",
+    "observedAA": "V",
+    "ca": [
+      75.141,
+      114.432,
+      12.933
+    ]
+  },
+  {
+    "referencePosition": 104,
+    "referenceAA": "K",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 107,
+    "authSeq": 104,
+    "insertionCode": "",
+    "observedAA": "K",
+    "ca": [
+      78.232,
+      115.04,
+      10.737
+    ]
+  },
+  {
+    "referencePosition": 105,
+    "referenceAA": "D",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 108,
+    "authSeq": 105,
+    "insertionCode": "",
+    "observedAA": "D",
+    "ca": [
+      76.802,
+      118.315,
+      9.403
+    ]
+  },
+  {
+    "referencePosition": 106,
+    "referenceAA": "S",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 109,
+    "authSeq": 106,
+    "insertionCode": "",
+    "observedAA": "S",
+    "ca": [
+      77.703,
+      117.212,
+      5.873
+    ]
+  },
+  {
+    "referencePosition": 107,
+    "referenceAA": "E",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 110,
+    "authSeq": 107,
+    "insertionCode": "",
+    "observedAA": "E",
+    "ca": [
+      76.349,
+      115.911,
+      2.59
+    ]
+  },
+  {
+    "referencePosition": 108,
+    "referenceAA": "D",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 111,
+    "authSeq": 108,
+    "insertionCode": "",
+    "observedAA": "D",
+    "ca": [
+      79.527,
+      113.952,
+      1.833
+    ]
+  },
+  {
+    "referencePosition": 109,
+    "referenceAA": "V",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 112,
+    "authSeq": 109,
+    "insertionCode": "",
+    "observedAA": "V",
+    "ca": [
+      79.975,
+      111.159,
+      4.29
+    ]
+  },
+  {
+    "referencePosition": 110,
+    "referenceAA": "P",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 113,
+    "authSeq": 110,
+    "insertionCode": "",
+    "observedAA": "P",
+    "ca": [
+      81.56,
+      107.932,
+      3.135
+    ]
+  },
+  {
+    "referencePosition": 111,
+    "referenceAA": "M",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 114,
+    "authSeq": 111,
+    "insertionCode": "",
+    "observedAA": "M",
+    "ca": [
+      78.773,
+      105.523,
+      2.519
+    ]
+  },
+  {
+    "referencePosition": 112,
+    "referenceAA": "V",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 115,
+    "authSeq": 112,
+    "insertionCode": "",
+    "observedAA": "V",
+    "ca": [
+      77.952,
+      102.341,
+      0.599
+    ]
+  },
+  {
+    "referencePosition": 113,
+    "referenceAA": "L",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 116,
+    "authSeq": 113,
+    "insertionCode": "",
+    "observedAA": "L",
+    "ca": [
+      74.478,
+      100.971,
+      -0.207
+    ]
+  },
+  {
+    "referencePosition": 114,
+    "referenceAA": "V",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 117,
+    "authSeq": 114,
+    "insertionCode": "",
+    "observedAA": "V",
+    "ca": [
+      74.282,
+      97.177,
+      0.38
+    ]
+  },
+  {
+    "referencePosition": 115,
+    "referenceAA": "G",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 118,
+    "authSeq": 115,
+    "insertionCode": "",
+    "observedAA": "G",
+    "ca": [
+      71.514,
+      95.106,
+      -1.08
+    ]
+  },
+  {
+    "referencePosition": 116,
+    "referenceAA": "N",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 119,
+    "authSeq": 116,
+    "insertionCode": "",
+    "observedAA": "N",
+    "ca": [
+      71.764,
+      91.913,
+      1.031
+    ]
+  },
+  {
+    "referencePosition": 117,
+    "referenceAA": "K",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 120,
+    "authSeq": 117,
+    "insertionCode": "",
+    "observedAA": "K",
+    "ca": [
+      70.335,
+      88.371,
+      0.562
+    ]
+  },
+  {
+    "referencePosition": 118,
+    "referenceAA": "C",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 121,
+    "authSeq": 118,
+    "insertionCode": "",
+    "observedAA": "C",
+    "ca": [
+      70.862,
+      88.181,
+      -3.198
+    ]
+  },
+  {
+    "referencePosition": 119,
+    "referenceAA": "D",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 122,
+    "authSeq": 119,
+    "insertionCode": "",
+    "observedAA": "D",
+    "ca": [
+      70.869,
+      84.362,
+      -2.971
+    ]
+  },
+  {
+    "referencePosition": 120,
+    "referenceAA": "L",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 123,
+    "authSeq": 120,
+    "insertionCode": "",
+    "observedAA": "L",
+    "ca": [
+      67.058,
+      84.474,
+      -2.468
+    ]
+  },
+  {
+    "referencePosition": 121,
+    "referenceAA": "P",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 124,
+    "authSeq": 121,
+    "insertionCode": "",
+    "observedAA": "P",
+    "ca": [
+      64.752,
+      83.449,
+      -5.288
+    ]
+  },
+  {
+    "referencePosition": 122,
+    "referenceAA": "S",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 125,
+    "authSeq": 122,
+    "insertionCode": "",
+    "observedAA": "S",
+    "ca": [
+      62.098,
+      86.147,
+      -5.379
+    ]
+  },
+  {
+    "referencePosition": 123,
+    "referenceAA": "R",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 126,
+    "authSeq": 123,
+    "insertionCode": "",
+    "observedAA": "R",
+    "ca": [
+      62.7,
+      89.75,
+      -4.523
+    ]
+  },
+  {
+    "referencePosition": 124,
+    "referenceAA": "T",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 127,
+    "authSeq": 124,
+    "insertionCode": "",
+    "observedAA": "T",
+    "ca": [
+      60.516,
+      92.807,
+      -3.998
+    ]
+  },
+  {
+    "referencePosition": 125,
+    "referenceAA": "V",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 128,
+    "authSeq": 125,
+    "insertionCode": "",
+    "observedAA": "V",
+    "ca": [
+      63.194,
+      95.57,
+      -4.355
+    ]
+  },
+  {
+    "referencePosition": 126,
+    "referenceAA": "D",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 129,
+    "authSeq": 126,
+    "insertionCode": "",
+    "observedAA": "D",
+    "ca": [
+      64.471,
+      96.014,
+      -7.98
+    ]
+  },
+  {
+    "referencePosition": 127,
+    "referenceAA": "T",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 130,
+    "authSeq": 127,
+    "insertionCode": "",
+    "observedAA": "T",
+    "ca": [
+      68.216,
+      96.17,
+      -8.675
+    ]
+  },
+  {
+    "referencePosition": 128,
+    "referenceAA": "K",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 131,
+    "authSeq": 128,
+    "insertionCode": "",
+    "observedAA": "K",
+    "ca": [
+      67.472,
+      99.212,
+      -10.911
+    ]
+  },
+  {
+    "referencePosition": 129,
+    "referenceAA": "Q",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 132,
+    "authSeq": 129,
+    "insertionCode": "",
+    "observedAA": "Q",
+    "ca": [
+      65.638,
+      100.941,
+      -8.073
+    ]
+  },
+  {
+    "referencePosition": 130,
+    "referenceAA": "A",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 133,
+    "authSeq": 130,
+    "insertionCode": "",
+    "observedAA": "A",
+    "ca": [
+      68.638,
+      100.474,
+      -5.812
+    ]
+  },
+  {
+    "referencePosition": 131,
+    "referenceAA": "Q",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 134,
+    "authSeq": 131,
+    "insertionCode": "",
+    "observedAA": "Q",
+    "ca": [
+      71.143,
+      101.519,
+      -8.48
+    ]
+  },
+  {
+    "referencePosition": 132,
+    "referenceAA": "D",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 135,
+    "authSeq": 132,
+    "insertionCode": "",
+    "observedAA": "D",
+    "ca": [
+      69.034,
+      104.666,
+      -8.927
+    ]
+  },
+  {
+    "referencePosition": 133,
+    "referenceAA": "L",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 136,
+    "authSeq": 133,
+    "insertionCode": "",
+    "observedAA": "L",
+    "ca": [
+      68.97,
+      105.326,
+      -5.199
+    ]
+  },
+  {
+    "referencePosition": 134,
+    "referenceAA": "A",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 137,
+    "authSeq": 134,
+    "insertionCode": "",
+    "observedAA": "A",
+    "ca": [
+      72.753,
+      105.024,
+      -4.978
+    ]
+  },
+  {
+    "referencePosition": 135,
+    "referenceAA": "R",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 138,
+    "authSeq": 135,
+    "insertionCode": "",
+    "observedAA": "R",
+    "ca": [
+      73.261,
+      107.299,
+      -8.035
+    ]
+  },
+  {
+    "referencePosition": 136,
+    "referenceAA": "S",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 139,
+    "authSeq": 136,
+    "insertionCode": "",
+    "observedAA": "S",
+    "ca": [
+      70.945,
+      109.905,
+      -6.344
+    ]
+  },
+  {
+    "referencePosition": 137,
+    "referenceAA": "Y",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 140,
+    "authSeq": 137,
+    "insertionCode": "",
+    "observedAA": "Y",
+    "ca": [
+      73.093,
+      109.717,
+      -3.231
+    ]
+  },
+  {
+    "referencePosition": 138,
+    "referenceAA": "G",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 141,
+    "authSeq": 138,
+    "insertionCode": "",
+    "observedAA": "G",
+    "ca": [
+      76.368,
+      109.582,
+      -5.239
+    ]
+  },
+  {
+    "referencePosition": 139,
+    "referenceAA": "I",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 142,
+    "authSeq": 139,
+    "insertionCode": "",
+    "observedAA": "I",
+    "ca": [
+      77.556,
+      106.383,
+      -3.527
+    ]
+  },
+  {
+    "referencePosition": 140,
+    "referenceAA": "P",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 143,
+    "authSeq": 140,
+    "insertionCode": "",
+    "observedAA": "P",
+    "ca": [
+      78.426,
+      102.843,
+      -4.648
+    ]
+  },
+  {
+    "referencePosition": 141,
+    "referenceAA": "F",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 144,
+    "authSeq": 141,
+    "insertionCode": "",
+    "observedAA": "F",
+    "ca": [
+      75.892,
+      100.018,
+      -4.714
+    ]
+  },
+  {
+    "referencePosition": 142,
+    "referenceAA": "I",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 145,
+    "authSeq": 142,
+    "insertionCode": "",
+    "observedAA": "I",
+    "ca": [
+      76.911,
+      96.392,
+      -3.945
+    ]
+  },
+  {
+    "referencePosition": 143,
+    "referenceAA": "E",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 146,
+    "authSeq": 143,
+    "insertionCode": "",
+    "observedAA": "E",
+    "ca": [
+      74.814,
+      93.244,
+      -4.021
+    ]
+  },
+  {
+    "referencePosition": 144,
+    "referenceAA": "T",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 147,
+    "authSeq": 144,
+    "insertionCode": "",
+    "observedAA": "T",
+    "ca": [
+      75.702,
+      90.804,
+      -1.204
+    ]
+  },
+  {
+    "referencePosition": 145,
+    "referenceAA": "S",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 148,
+    "authSeq": 145,
+    "insertionCode": "",
+    "observedAA": "S",
+    "ca": [
+      74.804,
+      87.473,
+      0.234
+    ]
+  },
+  {
+    "referencePosition": 146,
+    "referenceAA": "A",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 149,
+    "authSeq": 146,
+    "insertionCode": "",
+    "observedAA": "A",
+    "ca": [
+      75.945,
+      86.681,
+      3.768
+    ]
+  },
+  {
+    "referencePosition": 147,
+    "referenceAA": "K",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 150,
+    "authSeq": 147,
+    "insertionCode": "",
+    "observedAA": "K",
+    "ca": [
+      74.761,
+      83.158,
+      3.086
+    ]
+  },
+  {
+    "referencePosition": 148,
+    "referenceAA": "T",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 151,
+    "authSeq": 148,
+    "insertionCode": "",
+    "observedAA": "T",
+    "ca": [
+      76.993,
+      82.424,
+      0.066
+    ]
+  },
+  {
+    "referencePosition": 149,
+    "referenceAA": "R",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 152,
+    "authSeq": 149,
+    "insertionCode": "",
+    "observedAA": "R",
+    "ca": [
+      79.588,
+      85.057,
+      1.086
+    ]
+  },
+  {
+    "referencePosition": 150,
+    "referenceAA": "Q",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 153,
+    "authSeq": 150,
+    "insertionCode": "",
+    "observedAA": "Q",
+    "ca": [
+      79.059,
+      86.839,
+      -2.344
+    ]
+  },
+  {
+    "referencePosition": 151,
+    "referenceAA": "G",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 154,
+    "authSeq": 151,
+    "insertionCode": "",
+    "observedAA": "G",
+    "ca": [
+      80.174,
+      90.438,
+      -2.332
+    ]
+  },
+  {
+    "referencePosition": 152,
+    "referenceAA": "V",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 155,
+    "authSeq": 152,
+    "insertionCode": "",
+    "observedAA": "V",
+    "ca": [
+      81.09,
+      90.444,
+      1.382
+    ]
+  },
+  {
+    "referencePosition": 153,
+    "referenceAA": "D",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 156,
+    "authSeq": 153,
+    "insertionCode": "",
+    "observedAA": "D",
+    "ca": [
+      84.719,
+      91.582,
+      1.106
+    ]
+  },
+  {
+    "referencePosition": 154,
+    "referenceAA": "D",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 157,
+    "authSeq": 154,
+    "insertionCode": "",
+    "observedAA": "D",
+    "ca": [
+      83.745,
+      93.83,
+      -1.846
+    ]
+  },
+  {
+    "referencePosition": 155,
+    "referenceAA": "A",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 158,
+    "authSeq": 155,
+    "insertionCode": "",
+    "observedAA": "A",
+    "ca": [
+      81.228,
+      95.707,
+      0.354
+    ]
+  },
+  {
+    "referencePosition": 156,
+    "referenceAA": "F",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 159,
+    "authSeq": 156,
+    "insertionCode": "",
+    "observedAA": "F",
+    "ca": [
+      83.478,
+      96.439,
+      3.301
+    ]
+  },
+  {
+    "referencePosition": 157,
+    "referenceAA": "Y",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 160,
+    "authSeq": 157,
+    "insertionCode": "",
+    "observedAA": "Y",
+    "ca": [
+      86.535,
+      97.038,
+      1.159
+    ]
+  },
+  {
+    "referencePosition": 158,
+    "referenceAA": "T",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 161,
+    "authSeq": 158,
+    "insertionCode": "",
+    "observedAA": "T",
+    "ca": [
+      84.564,
+      99.408,
+      -1.017
+    ]
+  },
+  {
+    "referencePosition": 159,
+    "referenceAA": "L",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 162,
+    "authSeq": 159,
+    "insertionCode": "",
+    "observedAA": "L",
+    "ca": [
+      83.552,
+      101.441,
+      2.093
+    ]
+  },
+  {
+    "referencePosition": 160,
+    "referenceAA": "V",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 163,
+    "authSeq": 160,
+    "insertionCode": "",
+    "observedAA": "V",
+    "ca": [
+      87.229,
+      101.643,
+      3.011
+    ]
+  },
+  {
+    "referencePosition": 161,
+    "referenceAA": "R",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 164,
+    "authSeq": 161,
+    "insertionCode": "",
+    "observedAA": "R",
+    "ca": [
+      88.046,
+      103.086,
+      -0.415
+    ]
+  },
+  {
+    "referencePosition": 162,
+    "referenceAA": "E",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 165,
+    "authSeq": 162,
+    "insertionCode": "",
+    "observedAA": "E",
+    "ca": [
+      85.292,
+      105.637,
+      0.094
+    ]
+  },
+  {
+    "referencePosition": 163,
+    "referenceAA": "I",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 166,
+    "authSeq": 163,
+    "insertionCode": "",
+    "observedAA": "I",
+    "ca": [
+      86.813,
+      106.724,
+      3.397
+    ]
+  },
+  {
+    "referencePosition": 164,
+    "referenceAA": "R",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 167,
+    "authSeq": 164,
+    "insertionCode": "",
+    "observedAA": "R",
+    "ca": [
+      89.989,
+      107.35,
+      1.333
+    ]
+  },
+  {
+    "referencePosition": 165,
+    "referenceAA": "K",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 168,
+    "authSeq": 165,
+    "insertionCode": "",
+    "observedAA": "K",
+    "ca": null
+  },
+  {
+    "referencePosition": 166,
+    "referenceAA": "H",
+    "labelChain": "A",
+    "authChain": "A",
+    "labelSeq": 169,
+    "authSeq": 166,
+    "insertionCode": "",
+    "observedAA": "H",
+    "ca": null
+  }
+]

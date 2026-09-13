@@ -1,0 +1,3 @@
+numpy==2.4.3
+biopython==1.86
+gemmi==0.7.5

@@ -25,3 +25,13 @@ Actual browser/WebGL interaction, responsive visual inspection, focus behavior a
 ## Files
 
 `src/components/workbench.tsx`, `src/components/molstar-viewer.tsx`, `src/components/investigation/evidence.tsx`, `src/lib/investigation/client.ts`, `src/lib/investigation/view-state.ts`, `src/app/globals.css`, `src/app/layout.tsx`, `tests/view-state.test.ts`, `tests/investigation-client.test.ts`.
+
+## Integrated inspection follow-up
+
+Controller successfully inspected the actual WebGL workspace in CUA at 1440px and the default narrower viewport; both experimental structures rendered. Follow-up corrections:
+
+- Exact trimmed/case-normalized variant queries now rank the exact variant before combination matches, while retaining the selected-position filter and stable ordering of remaining results. A failing regression test preceded the correction.
+- Camera persistence now observes Mol*'s `camera.changed` notifications after rendered updates rather than taking early pointer/wheel snapshots. The observer waits for 250ms without further rendered movement, then captures the current snapshot. This covers direct control mutations, explicit Focus selection and reset. Teardown cancels the pending timer and removes the subscription. Tests use the actual bundled Mol* Camera, simulate successive rendered control changes and explicit focus, and verify the final snapshot and disposal behavior. Both new tests were observed failing before implementation.
+- Prior method description, detailed limitations and source link are collapsed under a disclosure. The score and the statement “Substitution compatibility, not a prediction of assay outcomes” remain visible.
+
+Targeted UI/client tests now total **12 passing**. Full TypeScript and owned-file ESLint checks pass. Node emits its expected experimental warning for the deterministic MockTimers test API. These follow-up changes await focused controller CUA reinspection; no browser claim is inferred from unit tests.

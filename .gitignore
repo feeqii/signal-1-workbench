@@ -8,3 +8,8 @@ out
 npm-debug.log*
 coverage
 *.tsbuildinfo
+
+.signal1/
+.venv/
+__pycache__/
+.revamp-context/

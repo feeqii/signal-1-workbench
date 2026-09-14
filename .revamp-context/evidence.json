@@ -1,0 +1,61 @@
+{
+  "prepared_on": "2026-09-13",
+  "repository": "feeqii/signal-1-workbench",
+  "clone_head": "a35f831237769746c07c41fb6cffad4079f8e1cc",
+  "origin_task": "01a09b2a-b98e-7ef2-a65f-a5987f268c6c",
+  "coverage": "Selected prior file reads only; new task is asked for comprehensive first-party source and workflow review. No parent live UI audit or model/field validation.",
+  "files": [
+    {
+      "source_snapshot": "initial",
+      "source_collection": "files",
+      "repository": "feeqii/signal-1-workbench",
+      "path": "README.md",
+      "git_blob_sha": "b9cf5726a1e7cbbfb95bc76195a61e29a98ced7b",
+      "url": "https://github.com/feeqii/signal-1-workbench/blob/main/README.md",
+      "coverage": "Fetched full file; substantive sections reviewed. No code executed in this audit.",
+      "start_line": 1,
+      "end_line": 111,
+      "content": "# Signal-1: 3D-First Target Workbench\n\nSignal-1 is a 3D-first biology interface for target triage. The goal is simple: keep structural evidence, confidence signals, and therapy context in one decision surface so teams can move from \"what changed?\" to \"is this target actionable?\" faster.\n\nThis repo is the baseline implementation.\n\n## Problem We Are Solving\n\nModern target evaluation is fragmented:\n\n- Structure interpretation happens in one tool, target/disease/drug context in others.\n- WT vs mutant, isoform vs canonical, and PDB vs AlphaFold comparisons are manual and slow.\n- Confidence data (pLDDT/PAE) is often hidden behind separate files or workflows.\n- Collaboration is ephemeral; analysis steps are not consistently reproducible or shareable.\n\nResult: high context-switching cost, slower decisions, and weaker traceability.\n\n## Baseline Solution In This Repo\n\nSignal-1 ships a working, open-source-first baseline with these capabilities:\n\n### 1. 3D-first workspace with Mol*\n- Mol* is the center of the UI, not a side panel.\n- Structures can be loaded as a pair for direct visual comparison.\n- Scene reload and structure switching are first-class actions.\n\n### 2. Live compare modes\n- `WT vs mutant`\n- `Isoform vs canonical`\n- `Experimental PDB vs AlphaFold`\n- Default compare pairs are automatically selected from resolved target metadata.\n\n### 3. Confidence storytelling\n- AlphaFold `pLDDT` and `PAE` payloads are fetched and summarized in the UI.\n- Parsing runs in a Web Worker (`public/workers/confidence.worker.js`) to keep the main thread responsive.\n- The workbench exposes confidence rollups (mean pLDDT, high/low-confidence residues, PAE mean/max).\n\n### 4. Target-to-therapy context in-session\n- Disease associations and drug context are shown in a target-centric graph.\n- Node selection is interactive and tracked as part of the analysis record.\n\n### 5. Collab + playback story\n- Key actions are recorded as timestamped events (`target-loaded`, `mode-changed`, `annotation-added`, etc.).\n- Stories are shareable by URL.\n- Multi-user cursors + residue annotation sync run over WebSocket rooms.\n\n### 6. Open-source data integration through one adapter layer\n- `UniProt` for canonical protein identity and metadata\n- `RCSB` for experimental structure metadata\n- `AlphaFold DB` for predicted structures and confidence documents\n- `Open Targets` for target-disease-drug evidence\n- `ChEMBL` for mechanism-linked compounds\n\nAll upstreams are normalized via a single BFF endpoint: `GET /api/resolve?gene=...`\n\n## Why This Is Useful\n\nThis baseline compresses the triage loop into one place:\n\n- Faster structural reasoning: compare modes and confidence overlays are immediate.\n- Better translational context: disease and drug evidence stays adjacent to structure analysis.\n- Higher reproducibility: analysis becomes a shareable story instead of a screenshot trail.\n- Easier evolution: adapter-based architecture isolates upstream API churn from the UI.\n\n## Architecture\n\n- Frontend: `Next.js` (App Router), `React`, `Tailwind CSS`\n- 3D rendering: `Mol*` loaded in-browser\n- BFF/API normalization: Next route handlers in `src/app/api/*`\n- Realtime channel: `Socket.IO` at `src/pages/api/socket.ts`\n- Caching: in-memory by default, optional Redis REST via `src/lib/cache.ts`\n- Background compute: worker-based confidence parsing\n\n## Key Files\n\n- `src/components/workbench.tsx`: main 3D-first product surface\n- `src/components/molstar-viewer.tsx`: Mol* bootstrapping + structure loading\n- `src/components/therapy-graph.tsx`: target-disease-drug graph UI\n- `src/app/api/resolve/route.ts`: open-data adapter/orchestration endpoint\n- `src/app/api/story/route.ts`: story share/load API\n- `src/pages/api/socket.ts`: collaboration transport\n- `public/workers/confidence.worker.js`: pLDDT/PAE summarization\n\n## Run Locally\n\n```bash\nnpm install\nnpm run dev\n```\n\nThen open [http://localhost:3000](http://localhost:3000).\n\n## Optional Environment Variables\n\n- `REDIS_REST_URL`: Redis REST endpoint for shared cache\n- `REDIS_REST_TOKEN`: Redis REST token\n- `ALPHAFOLD_API_BASE`: override AlphaFold adapter base URL\n\n## Current Baseline Boundaries\n\n- Story persistence is in-memory (process-local); not durable across restarts.\n- Authn/authz and role-based collaboration controls are not yet implemented.\n- No server-side job queue yet for heavy structural pre-processing.\n- Confidence is currently surfaced as numeric storytelling, not residue heatmap painting in-viewer.\n\n## API Change Resilience Notes\n\n- AlphaFold access goes through an adapter with legacy fallback support.\n- Open Targets and other external payloads are normalized before reaching UI components.\n- This architecture is designed so upstream API/version changes can be handled in one place.\n"
+    },
+    {
+      "source_snapshot": "portfolio-upgrade-directions-2026-09-13",
+      "repository": "feeqii/signal-1-workbench",
+      "ref": "a35f831237769746c07c41fb6cffad4079f8e1cc",
+      "path": "src/components/molstar-viewer.tsx",
+      "content": "\"use client\";\n\nimport { useEffect, useRef, useState } from \"react\";\n\nimport type { StructureCandidate } from \"@/lib/types\";\n\ntype MolstarViewerApi = {\n  loadPdb: (id: string) => Promise<void>;\n  loadAlphaFoldDb: (id: string) => Promise<void>;\n  loadStructureFromUrl: (\n    url: string,\n    format?: string,\n    isBinary?: boolean,\n    options?: { label?: string }\n  ) => Promise<void>;\n  loadModelArchive: (id: string) => Promise<void>;\n  dispose?: () => void;\n};\n\ndeclare global {\n  interface Window {\n    molstar?: {\n      Viewer: {\n        create: (target: HTMLElement, options?: Record<string, unknown>) => Promise<MolstarViewerApi>;\n      };\n    };\n  }\n}\n\nlet molstarScriptPromise: Promise<void> | null = null;\n\nfunction ensureMolstarAssets(): Promise<void> {\n  if (typeof window === \"undefined\") {\n    return Promise.resolve();\n  }\n\n  if (!document.getElementById(\"molstar-css\")) {\n    const link = document.createElement(\"link\");\n    link.id = \"molstar-css\";\n    link.rel = \"stylesheet\";\n    link.href = \"https://cdn.jsdelivr.net/npm/molstar/build/viewer/molstar.css\";\n    document.head.append(link);\n  }\n\n  if (!molstarScriptPromise) {\n    molstarScriptPromise = new Promise<void>((resolve, reject) => {\n      if (window.molstar?.Viewer) {\n        resolve();\n        return;\n      }\n\n      const script = document.createElement(\"script\");\n      script.src = \"https://cdn.jsdelivr.net/npm/molstar/build/viewer/molstar.js\";\n      script.async = true;\n      script.onload = () => resolve();\n      script.onerror = () => reject(new Error(\"Failed to load Mol* script\"));\n      document.body.append(script);\n    });\n  }\n\n  return molstarScriptPromise;\n}\n\nasync function loadStructure(viewer: MolstarViewerApi, item: StructureCandidate) {\n  if (item.source === \"alphafold\") {\n    await viewer.loadAlphaFoldDb(item.loadId);\n    return;\n  }\n\n  if (item.source === \"pdb\") {\n    await viewer.loadPdb(item.loadId);\n    return;\n  }\n\n  if (item.source === \"modelarchive\") {\n    await viewer.loadModelArchive(item.loadId);\n    return;\n  }\n\n  await viewer.loadStructureFromUrl(item.loadId, \"pdb\", false, { label: item.label });\n}\n\nexport function MolstarViewer({\n  structures,\n  sceneKey,\n  onLog\n}: {\n  structures: StructureCandidate[];\n  sceneKey: string;\n  onLog?: (message: string) => void;\n}) {\n  const containerRef = useRef<HTMLDivElement | null>(null);\n  const onLogRef = useRef(onLog);\n  const [error, setError] = useState<string | null>(null);\n\n  useEffect(() => {\n    onLogRef.current = onLog;\n  }, [onLog]);\n\n  useEffect(() => {\n    let cancelled = false;\n    const sceneStructures = structures;\n\n    async function boot() {\n      try {\n        setError(null);\n        await ensureMolstarAssets();\n\n        if (!containerRef.current || cancelled) {\n          return;\n        }\n\n        containerRef.current.replaceChildren();\n\n        const viewer = await window.molstar!.Viewer.create(containerRef.current, {\n          layoutShowLeftPanel: true,\n          layoutShowSequence: true,\n          layoutShowLog: false,\n          viewportShowExpand: false,\n          viewportShowSettings: true,\n          viewportShowAnimation: false,\n          viewportShowSelectionMode: true,\n          collapseRightPanel: true,\n          collapseLeftPanel: false,\n          illumination: true,\n          viewportBackgroundColor: \"#050a08\"\n        });\n\n        if (cancelled) {\n          return;\n        }\n\n        for (const structure of sceneStructures) {\n          onLogRef.current?.(`Loading ${structure.label} in Mol*...`);\n          await loadStructure(viewer, structure);\n        }\n\n        onLogRef.current?.(\"Mol* scene ready.\");\n      } catch (caught) {\n        setError((caught as Error).message || \"Failed to initialize Mol*\");\n      }\n    }\n\n    void boot();\n\n    return () => {\n      cancelled = true;\n    };\n  }, [sceneKey, structures]);\n\n  return (\n    <div className=\"viewer-shell\">\n      <div ref={containerRef} className=\"h-full w-full\" />\n      {error ? (\n        <div className=\"absolute left-3 top-3 rounded-md bg-red-600/90 px-2 py-1 text-xs text-white\">\n          {error}\n        </div>\n      ) : null}\n    </div>\n  );\n}\n",
+      "encoding": "utf-8",
+      "sha": "c6413069f7e5d23cec408bc8c779945698b35857",
+      "display_url": "https://github.com/feeqii/signal-1-workbench/blob/a35f831237769746c07c41fb6cffad4079f8e1cc/src/components/molstar-viewer.tsx",
+      "display_title": "molstar-viewer.tsx"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://platform-docs.opentargets.org/",
+      "title": "Open Targets Platform documentation",
+      "use": "Already provides target-disease evidence aggregation and prioritisation. Proposed Signal-1 differentiation requires investigation/comparison/experimental workflow."
+    },
+    {
+      "url": "https://alphafold.ebi.ac.uk/faq",
+      "title": "AlphaFold DB FAQ",
+      "use": "pLDDT is predicted structure confidence; point-mutation interpretation has explicit limitations."
+    },
+    {
+      "url": "https://github.com/OATML-Markslab/ProteinGym",
+      "title": "ProteinGym official repository",
+      "use": "Public variant-effect baselines/data/evaluation. A module benchmark, not validation of therapeutic target utility."
+    },
+    {
+      "url": "https://proteingym.org/",
+      "title": "ProteinGym official site",
+      "use": "Variant-effect benchmark context; no data download or benchmark execution."
+    }
+  ],
+  "source_versions": {
+    "wiki/work/portfolio-project-upgrades.md": "a70dee2b377d80181db989a57d34c00eba84a08ffb67afb9c8bbe801c315fd31",
+    "sources/research/founder-profile-2026-09-13.json": "36c1f76d0a17a081eba430d3cc1132ea71c346780a81b3d894295427794fb002",
+    "sources/research/founder-portfolio-expanded-2026-09-13.json": "9dcb9f4473efce88ea11a79c23899b9e87474baedd55d5f3b7f2e4f257003e3f",
+    "sources/research/portfolio-upgrade-directions-2026-09-13.json": "624c3b340a0a1ccf4993980e04160e287be243ccf14527ac4e171171cc0fbc5e",
+    "sources/research/portfolio-holistic-design-direction-2026-09-13.md": "0be849a62aac54160e3c12ecc0d099f50abb53e56d907c04d7aa62406c6a3b2d"
+  }
+}

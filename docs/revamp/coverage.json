@@ -1,0 +1,201 @@
+{
+  "commit": "a35f831237769746c07c41fb6cffad4079f8e1cc",
+  "files": [
+    {
+      "path": ".gitignore",
+      "category": "reviewed-full-first-party",
+      "bytes": 97,
+      "lines": 10,
+      "blob": "fe264e84f5a431fcbf0d40e520ae20fd29b83e7e"
+    },
+    {
+      "path": "README.md",
+      "category": "reviewed-full-first-party",
+      "bytes": 4757,
+      "lines": 110,
+      "blob": "b9cf5726a1e7cbbfb95bc76195a61e29a98ced7b"
+    },
+    {
+      "path": "eslint.config.mjs",
+      "category": "reviewed-full-first-party",
+      "bytes": 118,
+      "lines": 5,
+      "blob": "57c5779a56913e734b7c9096cd60496b6b90cee9"
+    },
+    {
+      "path": "legacy-static/app.js",
+      "category": "reviewed-full-first-party",
+      "bytes": 40055,
+      "lines": 1367,
+      "blob": "21451ac6ed44bcf84d51d542c7b61f371acb01a7"
+    },
+    {
+      "path": "legacy-static/index.html",
+      "category": "reviewed-full-first-party",
+      "bytes": 9597,
+      "lines": 264,
+      "blob": "e9fc200cee570b7dc6d6ef87f9347677b663249f"
+    },
+    {
+      "path": "legacy-static/styles.css",
+      "category": "reviewed-full-first-party",
+      "bytes": 9136,
+      "lines": 579,
+      "blob": "2f8c50e76de76049aae95a968189ff3d7e8a7541"
+    },
+    {
+      "path": "next-env.d.ts",
+      "category": "generated-full-read",
+      "bytes": 328,
+      "lines": 7,
+      "blob": "36a4fe488ad024b95c435062c09082fc18a9c27c"
+    },
+    {
+      "path": "next.config.ts",
+      "category": "reviewed-full-first-party",
+      "bytes": 241,
+      "lines": 11,
+      "blob": "88345fb45603f2949bb08fd22bd05318a53503b5"
+    },
+    {
+      "path": "package-lock.json",
+      "category": "generated-metadata-reviewed-not-vendor-source",
+      "bytes": 238487,
+      "lines": 6854,
+      "blob": "fccfd53120f9552439cba54b33d7ce6c5a0b7d73"
+    },
+    {
+      "path": "package.json",
+      "category": "reviewed-full-first-party",
+      "bytes": 841,
+      "lines": 34,
+      "blob": "da6bf2acd7d5f6d2782754b7498f6f7b5ce1b944"
+    },
+    {
+      "path": "postcss.config.mjs",
+      "category": "reviewed-full-first-party",
+      "bytes": 68,
+      "lines": 5,
+      "blob": "9b544e33d6bdd675a4a515e86edbbc37966b6f3d"
+    },
+    {
+      "path": "public/favicon.ico",
+      "category": "binary-inventoried-not-visually-reviewed",
+      "bytes": 15086,
+      "lines": null,
+      "blob": "af98450595e8b8efd9e505cddc5ed705b665a4d8"
+    },
+    {
+      "path": "public/workers/confidence.worker.js",
+      "category": "reviewed-full-first-party",
+      "bytes": 2493,
+      "lines": 115,
+      "blob": "c107e9a309a3fa6a950cf7388b76a336be1b6f69"
+    },
+    {
+      "path": "src/app/api/resolve/route.ts",
+      "category": "reviewed-full-first-party",
+      "bytes": 16299,
+      "lines": 559,
+      "blob": "5ad9a3de7ba5cf12f578ec9476104e63234a762c"
+    },
+    {
+      "path": "src/app/api/story/route.ts",
+      "category": "reviewed-full-first-party",
+      "bytes": 1157,
+      "lines": 47,
+      "blob": "a6fdd3fa2478d5d1d869793f345e0ac59778f5cc"
+    },
+    {
+      "path": "src/app/globals.css",
+      "category": "reviewed-full-first-party",
+      "bytes": 2964,
+      "lines": 169,
+      "blob": "d6281055c999dc1040e4745c06a8b32da8aac558"
+    },
+    {
+      "path": "src/app/layout.tsx",
+      "category": "reviewed-full-first-party",
+      "bytes": 431,
+      "lines": 21,
+      "blob": "3fa0f60c07c57253a956c8a679031a9a4b7a580b"
+    },
+    {
+      "path": "src/app/page.tsx",
+      "category": "reviewed-full-first-party",
+      "bytes": 116,
+      "lines": 5,
+      "blob": "a0d17b286dbcd88d7ac71ae614a194edc5c53836"
+    },
+    {
+      "path": "src/components/molstar-viewer.tsx",
+      "category": "reviewed-full-first-party",
+      "bytes": 4128,
+      "lines": 161,
+      "blob": "c6413069f7e5d23cec408bc8c779945698b35857"
+    },
+    {
+      "path": "src/components/therapy-graph.tsx",
+      "category": "reviewed-full-first-party",
+      "bytes": 2898,
+      "lines": 109,
+      "blob": "6d01d970df2dad8ce032eb48d9cb7494e3c8e4c2"
+    },
+    {
+      "path": "src/components/workbench.tsx",
+      "category": "reviewed-full-first-party",
+      "bytes": 29416,
+      "lines": 890,
+      "blob": "223e59745814244a408b61cb13ac2f21346fc8a0"
+    },
+    {
+      "path": "src/lib/cache.ts",
+      "category": "reviewed-full-first-party",
+      "bytes": 1578,
+      "lines": 60,
+      "blob": "869aadceeef0dc91c34b4ff6822bbf96bf924016"
+    },
+    {
+      "path": "src/lib/http.ts",
+      "category": "reviewed-full-first-party",
+      "bytes": 688,
+      "lines": 30,
+      "blob": "f0abd58e53c9c299a7cd5fe77493abe6a4c563ed"
+    },
+    {
+      "path": "src/lib/types.ts",
+      "category": "reviewed-full-first-party",
+      "bytes": 1915,
+      "lines": 101,
+      "blob": "3db691dbf31f27c0a2c0ef5bb99682ada0b270ec"
+    },
+    {
+      "path": "src/lib/utils.ts",
+      "category": "reviewed-full-first-party",
+      "bytes": 455,
+      "lines": 14,
+      "blob": "c9731970fb9174d2d1578c30d484eb7af8ca4765"
+    },
+    {
+      "path": "src/pages/api/socket.ts",
+      "category": "reviewed-full-first-party",
+      "bytes": 1161,
+      "lines": 46,
+      "blob": "ac0fb8f1244252ba369104c1e28eb856fb71a1b0"
+    },
+    {
+      "path": "src/types/socket.ts",
+      "category": "reviewed-full-first-party",
+      "bytes": 326,
+      "lines": 12,
+      "blob": "8f7c7ea21bbcabb9f3f1661c2c6f3fbf09e4f2a8"
+    },
+    {
+      "path": "tsconfig.json",
+      "category": "reviewed-full-first-party",
+      "bytes": 577,
+      "lines": 23,
+      "blob": "e7267b78f75ae84f955c26f1ea890891056aa6ab"
+    }
+  ]
+}

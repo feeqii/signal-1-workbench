@@ -1,0 +1,507 @@
+{
+  "commit": "a35f831237769746c07c41fb6cffad4079f8e1cc",
+  "isolated_probes": {
+    "at": "2026-09-13T15:53:35.585Z",
+    "kind": "isolated audit probes; no biological validation",
+    "unverifiedIsoformCandidate": [
+      {
+        "id": "af:AUDIT",
+        "label": "AUDIT canonical (AlphaFold)",
+        "source": "alphafold",
+        "loadId": "AUDIT",
+        "paeUrl": null,
+        "plddtUrl": null,
+        "modelUrl": "test"
+      },
+      {
+        "id": "iso:AUDIT-1",
+        "label": "Isoform AUDIT-1",
+        "source": "alphafold",
+        "loadId": "AUDIT-1",
+        "notes": "Try against canonical for isoform deltas"
+      },
+      {
+        "id": "pdb:TEST",
+        "label": "Experimental PDB TEST",
+        "source": "pdb",
+        "loadId": "TEST",
+        "notes": "Load via RCSB"
+      }
+    ],
+    "wtMutantPairWithoutMutant": {
+      "left": {
+        "id": "af:AUDIT",
+        "label": "AUDIT canonical (AlphaFold)",
+        "source": "alphafold",
+        "loadId": "AUDIT",
+        "paeUrl": null,
+        "plddtUrl": null,
+        "modelUrl": "test"
+      },
+      "right": {
+        "id": "pdb:TEST",
+        "label": "Experimental PDB TEST",
+        "source": "pdb",
+        "loadId": "TEST",
+        "notes": "Load via RCSB"
+      }
+    },
+    "sameStructureFallback": {
+      "left": {
+        "id": "af:AUDIT",
+        "label": "AUDIT canonical (AlphaFold)",
+        "source": "alphafold",
+        "loadId": "AUDIT",
+        "paeUrl": null,
+        "plddtUrl": null,
+        "modelUrl": "test"
+      },
+      "right": {
+        "id": "af:AUDIT",
+        "label": "AUDIT canonical (AlphaFold)",
+        "source": "alphafold",
+        "loadId": "AUDIT",
+        "paeUrl": null,
+        "plddtUrl": null,
+        "modelUrl": "test"
+      }
+    },
+    "scoreWith_alphafold": 91,
+    "scoreWith_pdb": 83,
+    "worker": [
+      {
+        "input": {},
+        "output": {
+          "avgPlddt": 0,
+          "highConfidenceResidues": 0,
+          "lowConfidenceResidues": 0,
+          "paeMean": 0,
+          "paeMax": 0,
+          "residueCount": 0
+        }
+      },
+      {
+        "input": {
+          "plddtPayload": {
+            "confidenceScore": [
+              95,
+              null,
+              45
+            ]
+          },
+          "paePayload": [
+            {
+              "predicted_aligned_error": [
+                [
+                  0,
+                  2
+                ],
+                [
+                  5,
+                  0
+                ]
+              ]
+            }
+          ]
+        },
+        "output": {
+          "avgPlddt": 70,
+          "highConfidenceResidues": 1,
+          "lowConfidenceResidues": 1,
+          "paeMean": 1.75,
+          "paeMax": 5,
+          "residueCount": 2
+        }
+      },
+      {
+        "input": {
+          "plddtPayload": {
+            "confidenceScore": [
+              120,
+              -2
+            ]
+          },
+          "paePayload": [
+            [
+              0
+            ]
+          ]
+        },
+        "output": {
+          "avgPlddt": 59,
+          "highConfidenceResidues": 1,
+          "lowConfidenceResidues": 1,
+          "paeMean": 0,
+          "paeMax": 0,
+          "residueCount": 2
+        }
+      }
+    ],
+    "graphqlErrorBecomes": {
+      "diseases": [],
+      "drugs": []
+    }
+  },
+  "live_api_probes": {
+    "at": "2026-09-13T15:54:03.427Z",
+    "results": [
+      {
+        "name": "local-resolve-EGFR",
+        "url": "http://127.0.0.1:4311/api/resolve?gene=EGFR",
+        "status": 200,
+        "ms": 2605,
+        "data": {
+          "requestedGene": "EGFR",
+          "canonicalGene": "EGFR",
+          "accession": "P00533",
+          "ensemblId": "ENSG00000146648",
+          "sequenceLength": 1210,
+          "compareCandidates": [
+            {
+              "id": "pdb:1IVO",
+              "label": "Experimental PDB 1IVO",
+              "source": "pdb",
+              "loadId": "1IVO",
+              "notes": "Load via RCSB"
+            },
+            {
+              "id": "pdb:1M14",
+              "label": "Experimental PDB 1M14",
+              "source": "pdb",
+              "loadId": "1M14",
+              "notes": "Load via RCSB"
+            },
+            {
+              "id": "pdb:1M17",
+              "label": "Experimental PDB 1M17",
+              "source": "pdb",
+              "loadId": "1M17",
+              "notes": "Load via RCSB"
+            }
+          ],
+          "confidence": {
+            "hasAlphaFold": false
+          },
+          "sourceTrace": [
+            {
+              "source": "UniProt",
+              "detail": "Resolved P00533"
+            },
+            {
+              "source": "AlphaFold",
+              "detail": "No model metadata"
+            },
+            {
+              "source": "Open Targets",
+              "detail": "No rows returned"
+            },
+            {
+              "source": "RCSB",
+              "detail": "1IVO (3.3A)"
+            },
+            {
+              "source": "ChEMBL",
+              "detail": "CHEMBL203 (10 mechanism-linked compounds)"
+            },
+            {
+              "source": "Fetched",
+              "detail": "2026-09-13T15:54:03.424Z"
+            }
+          ],
+          "warnings": [
+            "Open Targets unavailable: HTTP 403 for https://api.platform.opentargets.org/api/v4/graphql",
+            "AlphaFold unavailable: HTTP 403 for https://alphafold.com/api/prediction/P00533"
+          ],
+          "disease_count": 0,
+          "drug_count": 10,
+          "first_drug": {
+            "id": "CHEMBL1201827",
+            "name": "CHEMBL1201827",
+            "phase": 4,
+            "status": "Epidermal growth factor receptor erbB1 inhibitor",
+            "source": "chembl"
+          }
+        }
+      },
+      {
+        "name": "uniprot-EGFR",
+        "url": "https://rest.uniprot.org/uniprotkb/P00533.json",
+        "status": 200,
+        "ms": 1141,
+        "data": {
+          "accession": "P00533",
+          "sequenceLength": 1210,
+          "firstPdb": [
+            {
+              "database": "PDB",
+              "id": "1IVO",
+              "properties": [
+                {
+                  "key": "Method",
+                  "value": "X-ray"
+                },
+                {
+                  "key": "Resolution",
+                  "value": "3.30 A"
+                },
+                {
+                  "key": "Chains",
+                  "value": "A/B=25-646"
+                }
+              ]
+            },
+            {
+              "database": "PDB",
+              "id": "1M14",
+              "properties": [
+                {
+                  "key": "Method",
+                  "value": "X-ray"
+                },
+                {
+                  "key": "Resolution",
+                  "value": "2.60 A"
+                },
+                {
+                  "key": "Chains",
+                  "value": "A=695-1022"
+                }
+              ]
+            },
+            {
+              "database": "PDB",
+              "id": "1M17",
+              "properties": [
+                {
+                  "key": "Method",
+                  "value": "X-ray"
+                },
+                {
+                  "key": "Resolution",
+                  "value": "2.60 A"
+                },
+                {
+                  "key": "Chains",
+                  "value": "A=695-1022"
+                }
+              ]
+            }
+          ],
+          "chembl": [
+            {
+              "database": "ChEMBL",
+              "id": "CHEMBL203",
+              "properties": [
+                {
+                  "key": "Description",
+                  "value": "-"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "name": "alphafold-EGFR",
+        "url": "https://alphafold.ebi.ac.uk/api/prediction/P00533",
+        "ms": 864,
+        "error": "Unexpected token '<', \"<!doctype \"... is not valid JSON"
+      },
+      {
+        "name": "alphafold-first-isoform",
+        "url": "https://alphafold.ebi.ac.uk/api/prediction/P00533-1",
+        "ms": 713,
+        "error": "Unexpected token '<', \"<!doctype \"... is not valid JSON"
+      },
+      {
+        "name": "chembl-EGFR-mechanism",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism.json?target_chembl_id=CHEMBL203&limit=1",
+        "status": 200,
+        "ms": 1436,
+        "data": {
+          "first": {
+            "action_type": "INHIBITOR",
+            "max_phase": 4,
+            "molecule_chembl_id": "CHEMBL1201827",
+            "target_chembl_id": "CHEMBL203",
+            "variant_sequence": null
+          },
+          "page": {
+            "limit": 1,
+            "next": "/chembl/api/data/mechanism.json?limit=1&offset=1&target_chembl_id=CHEMBL203",
+            "offset": 0,
+            "previous": null,
+            "total_count": 90
+          }
+        }
+      },
+      {
+        "name": "story-missing",
+        "url": "http://127.0.0.1:4311/api/story",
+        "status": 400,
+        "ms": 53,
+        "data": {
+          "error": "Missing id"
+        }
+      },
+      {
+        "name": "resolve-missing",
+        "url": "http://127.0.0.1:4311/api/resolve",
+        "status": 400,
+        "ms": 55,
+        "data": {
+          "error": "Missing gene query parameter"
+        }
+      }
+    ]
+  },
+  "additional_probes": {
+    "at": "2026-09-13T15:55:02.716Z",
+    "uniprotCommentTypes": [
+      "FUNCTION",
+      "FUNCTION",
+      "FUNCTION",
+      "CATALYTIC ACTIVITY",
+      "ACTIVITY REGULATION",
+      "SUBUNIT",
+      "INTERACTION",
+      "SUBCELLULAR LOCATION",
+      "SUBCELLULAR LOCATION",
+      "ALTERNATIVE PRODUCTS",
+      "TISSUE SPECIFICITY",
+      "PTM",
+      "PTM",
+      "PTM",
+      "PTM",
+      "PTM",
+      "DISEASE",
+      "DISEASE",
+      "SIMILARITY",
+      "WEB RESOURCE"
+    ],
+    "alternativeProducts": {
+      "commentType": "ALTERNATIVE PRODUCTS",
+      "events": [
+        "Alternative splicing"
+      ],
+      "isoforms": [
+        {
+          "name": {
+            "value": "1"
+          },
+          "synonyms": [
+            {
+              "value": "p170"
+            }
+          ],
+          "isoformIds": [
+            "P00533-1"
+          ],
+          "isoformSequenceStatus": "Displayed"
+        },
+        {
+          "name": {
+            "value": "2"
+          },
+          "synonyms": [
+            {
+              "value": "p60"
+            },
+            {
+              "value": "Truncated"
+            },
+            {
+              "value": "TEGFR"
+            }
+          ],
+          "isoformIds": [
+            "P00533-2"
+          ],
+          "sequenceIds": [
+            "VSP_002887",
+            "VSP_002888"
+          ],
+          "isoformSequenceStatus": "Described"
+        },
+        {
+          "name": {
+            "value": "3"
+          },
+          "synonyms": [
+            {
+              "value": "p110"
+            }
+          ],
+          "isoformIds": [
+            "P00533-3"
+          ],
+          "sequenceIds": [
+            "VSP_002889",
+            "VSP_002890"
+          ],
+          "isoformSequenceStatus": "Described"
+        },
+        {
+          "name": {
+            "value": "4"
+          },
+          "isoformIds": [
+            "P00533-4"
+          ],
+          "sequenceIds": [
+            "VSP_002891",
+            "VSP_002892"
+          ],
+          "isoformSequenceStatus": "Described"
+        }
+      ]
+    },
+    "https://alphafold.ebi.ac.uk/api/prediction/P00533": {
+      "status": 403,
+      "contentType": "text/html; charset=UTF-8",
+      "preview": "<!doctype html><meta charset=\"utf-8\"><meta name=viewport content=\"width=device-width, initial-scale="
+    },
+    "https://alphafold.com/api/prediction/P00533": {
+      "status": 403,
+      "contentType": "text/html; charset=UTF-8",
+      "preview": "<!doctype html><meta charset=\"utf-8\"><meta name=viewport content=\"width=device-width, initial-scale="
+    },
+    "invalidStory": {
+      "status": 200,
+      "saved": {
+        "id": "st_e7scxgemtzzw8af"
+      }
+    },
+    "storyReadback": {
+      "status": 200,
+      "data": {
+        "id": "st_e7scxgemtzzw8af",
+        "createdAt": "2026-09-13T15:55:04.311Z",
+        "events": [
+          {
+            "audit": "invalid event shape"
+          }
+        ]
+      }
+    },
+    "nonmemberRoomSend": {
+      "received": true,
+      "payload": {
+        "roomId": "audit-only-room",
+        "userId": "audit-sender",
+        "annotation": {
+          "label": "synthetic audit probe"
+        }
+      }
+    }
+  },
+  "checks": {
+    "node": "22.22.0",
+    "npm": "10.9.4",
+    "typecheck": "pass",
+    "lint": "pass with next lint deprecation warning",
+    "direct_eslint": "pass",
+    "production_build": "pass",
+    "browser": "blocked: administrator policy could not be verified; no UI screenshots captured"
+  }
+}

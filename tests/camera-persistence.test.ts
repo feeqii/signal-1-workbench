@@ -5,6 +5,23 @@ import { Vec3 } from 'molstar/lib/mol-math/linear-algebra';
 import { Viewport } from 'molstar/lib/mol-canvas3d/camera/util';
 import * as persistence from '../src/lib/investigation/camera-persistence';
 
+test('camera reset recomputes distance for a narrow viewport while preserving the canonical direction', () => {
+  const camera = new Camera(undefined, Viewport.create(0, 0, 1000, 500));
+  const canonical = camera.getFocus(Vec3.create(2, 4, 6), 30);
+  camera.setState(canonical, 0);
+  const wideDistance = Vec3.distance(camera.position, camera.target);
+  camera.viewport.width = 300;
+  camera.viewport.height = 600;
+  camera.setState({ position: Vec3.create(100, 20, 50), up: Vec3.create(1, 0, 0) }, 0);
+  persistence.resetFramedCamera(camera, canonical);
+  assert.deepEqual(camera.target, canonical.target);
+  assert.deepEqual(camera.up, canonical.up);
+  assert.ok(Vec3.distance(camera.position, camera.target) > wideDistance * 1.9);
+  const direction = Vec3.normalize(Vec3(), Vec3.sub(Vec3(), camera.position, camera.target));
+  const expected = Vec3.normalize(Vec3(), Vec3.sub(Vec3(), canonical.position!, canonical.target!));
+  assert.ok(Vec3.distance(direction, expected) < 1e-8);
+});
+
 test('camera persistence waits for final rendered movement and includes explicit focus', (t) => {
   assert.equal(typeof persistence.observeSettledCamera, 'function');
   t.mock.timers.enable({ apis: ['setTimeout'] });

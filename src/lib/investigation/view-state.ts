@@ -17,6 +17,20 @@ export function selectPosition(
 ): InvestigationState {
   return { ...state, selectedVariant: null, selectedPositions: [position] };
 }
+
+/** One search entry point for reference positions and validated variant notation. */
+export function locateTarget(state: InvestigationState, input: string, sequence: string): InvestigationState {
+  const value = input.trim().toUpperCase();
+  if (!value) throw new Error('Enter a variant such as G12D, or a residue such as Q61.');
+  const residue = /^([A-Z])?(\d+)$/.exec(value);
+  if (!residue) return selectVariant(state, value, sequence);
+  const position = Number(residue[2]);
+  if (position < 1 || position > sequence.length)
+    throw new Error(`Choose a reference position between 1 and ${sequence.length}.`);
+  if (residue[1] && residue[1] !== sequence[position - 1])
+    throw new Error(`The reference residue at this position is ${sequence[position - 1]}${position}.`);
+  return selectPosition(state, position);
+}
 export function jobMatches(
   job: { investigationId: string; inputRevision: number; status: string },
   saved: { id: string; revision: number },

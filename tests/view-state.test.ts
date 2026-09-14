@@ -129,3 +129,16 @@ test('residue selection highlights overlapping variants while exact variants rem
   assert.equal(view.evidenceSelection(row, 'G12D', [12]), 'residue');
   assert.equal(view.evidenceSelection(row, null, [22]), 'none');
 });
+
+test('canvas search distinguishes reference residues from substitutions and validates numbering', () => {
+  assert.equal(typeof view.locateTarget, 'function');
+  const sequence = manifest.reference.sequence;
+  assert.deepEqual(view.locateTarget(state, ' g12 ', sequence).selectedPositions, [12]);
+  assert.equal(view.locateTarget(state, '12', sequence).selectedVariant, null);
+  assert.equal(view.locateTarget(state, 'g12d', sequence).selectedVariant, 'G12D');
+  assert.deepEqual(view.locateTarget(state, 'G12D:V14I', sequence).selectedPositions, [12, 14]);
+  assert.throws(() => view.locateTarget(state, 'Q12', sequence), /G12/);
+  assert.throws(() => view.locateTarget(state, '0', sequence), /between/);
+  assert.throws(() => view.locateTarget(state, '189', sequence), /between/);
+  assert.throws(() => view.locateTarget(state, '', sequence), /Enter/);
+});

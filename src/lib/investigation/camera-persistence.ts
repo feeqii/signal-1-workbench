@@ -1,3 +1,13 @@
+import type { Camera } from 'molstar/lib/mol-canvas3d/camera';
+
+/** Fit the original frame to the current viewport without adopting a later rotation. */
+export function resetFramedCamera(camera: Camera, frame: Partial<Camera.Snapshot>): void {
+  if (!frame.target || frame.radius === undefined) return;
+  const fitted = camera.getFocus(frame.target, frame.radius, undefined, undefined, frame);
+  if (frame.up) fitted.up = [...frame.up] as typeof frame.up;
+  camera.setState(fitted, 0);
+}
+
 /** Observe rendered camera changes, including direct control mutations and explicit focus. */
 export function observeSettledCamera<T>(
   camera: {

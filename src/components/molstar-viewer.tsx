@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import {
+  resetFramedCamera,
   applyInvestigationCamera,
   observeSettledCamera,
 } from "@/lib/investigation/camera-persistence";
@@ -59,11 +60,12 @@ function cameraSnapshot(
 }
 export function MolstarViewer(props: Props) {
   const host = useRef<HTMLDivElement>(null),
-    canvas = useRef<HTMLCanvasElement>(null),
+    canvasMount = useRef<HTMLDivElement>(null),
     plugin = useRef<PluginContext | null>(null),
     loaded = useRef<Loaded[]>([]),
     latest = useRef(props),
     queue = useRef<Promise<void>>(Promise.resolve());
+  const lastFocus = useRef(props.focus);
   const frameCamera = useRef<Partial<Camera.Snapshot> | null>(null);
   const [message, setMessage] = useState("Loading experimental coordinates…");
   useEffect(() => {
@@ -75,9 +77,10 @@ export function MolstarViewer(props: Props) {
   useEffect(() => {
     let disposed = false;
     let local: PluginContext | undefined;
+    let localCanvas: HTMLCanvasElement | undefined;
     const subscriptions: { unsubscribe: () => void }[] = [];
     const setup = async () => {
-      if (disposed || !host.current || !canvas.current) return;
+      if (disposed || !host.current || !canvasMount.current) return;
       setMessage("Loading experimental coordinates…");
       const spec = DefaultPluginSpec();
       spec.behaviors = spec.behaviors.filter(
@@ -89,14 +92,23 @@ export function MolstarViewer(props: Props) {
         local.dispose();
         return;
       }
-      if (!(await local.initViewerAsync(canvas.current, host.current)))
+      // Each plugin owns a fresh canvas, including Strict Mode and hot-reload restarts.
+      // Disposing Mol* deliberately loses its WebGL context, which cannot be reused.
+      localCanvas = document.createElement('canvas');
+      localCanvas.setAttribute('aria-label', 'Interactive experimental KRAS structure. Drag to rotate; click a residue to select it.');
+      localCanvas.tabIndex = 0;
+      canvasMount.current!.replaceChildren(localCanvas);
+      if (!(await local.initViewerAsync(localCanvas, host.current!)))
         throw new Error(
           "WebGL is unavailable. Sequence and assay selection remain usable.",
         );
       plugin.current = local;
       local.canvas3d?.setProps({
-        renderer: { backgroundColor: Color(0x101915) },
+        renderer: { backgroundColor: Color(0x141e22) },
       });
+      const observer = new ResizeObserver(() => { if (!disposed) local?.handleResize(); });
+      observer.observe(host.current!);
+      subscriptions.push({ unsubscribe: () => observer.disconnect() });
       loaded.current = [];
       for (const item of latest.current.structures) {
         if (disposed) return;
@@ -240,6 +252,7 @@ export function MolstarViewer(props: Props) {
         .catch(() => {})
         .then(() => {
           local?.dispose();
+          localCanvas?.remove();
           if (plugin.current === local) {
             plugin.current = null;
             loaded.current = [];
@@ -287,24 +300,20 @@ export function MolstarViewer(props: Props) {
       );
   }, [props.camera, props.investigationId]);
   useEffect(() => {
-    if (!props.focus) return;
+    if (props.focus === lastFocus.current) return;
+    lastFocus.current = props.focus;
     const loci = loaded.current.map(lociFor).filter((l) => l.elements.length);
     if (loci.length)
       plugin.current?.managers.camera.focusLoci(loci, { durationMs: 0 });
   }, [props.focus]);
   useEffect(() => {
-    if (props.reset && frameCamera.current)
-      plugin.current?.canvas3d?.camera.setState(frameCamera.current, 0);
+    const camera = plugin.current?.canvas3d?.camera;
+    if (props.reset && frameCamera.current && camera)
+      resetFramedCamera(camera, frameCamera.current);
   }, [props.reset]);
   return (
     <div className="molecular-viewport" ref={host}>
-      <canvas
-        // Disposing the old plugin loses its WebGL context; a new fit needs a fresh canvas.
-        key={sceneKey}
-        ref={canvas}
-        aria-label="Interactive experimental KRAS structure. Drag to rotate; click a residue to select it."
-        tabIndex={0}
-      />
+      <div className="viewer-canvas" ref={canvasMount} />
       {message && (
         <div className="viewer-message" role="status">
           {message}

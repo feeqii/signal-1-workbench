@@ -1,0 +1,889 @@
+{
+  "schemaVersion": 1,
+  "leftId": "5O2S",
+  "rightId": "5O2T",
+  "kind": "descriptive experimental structure comparison",
+  "atom": "CA",
+  "units": "angstrom",
+  "count": 164,
+  "rmsd": 1.5076231048929027,
+  "coverage": 0.8723404255319149,
+  "rotation": [
+    [
+      0.4552172602962916,
+      -0.5787348866392736,
+      -0.6766410990436255
+    ],
+    [
+      0.4505929335025862,
+      0.8051865180927167,
+      -0.3855394653719142
+    ],
+    [
+      0.7679474293243467,
+      -0.12938547858378147,
+      0.6273086510847541
+    ]
+  ],
+  "translation": [
+    66.69725326273566,
+    -179.0357513594718,
+    -56.1434527867236
+  ],
+  "positions": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98,
+    99,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134,
+    135,
+    136,
+    137,
+    138,
+    139,
+    140,
+    141,
+    142,
+    143,
+    144,
+    145,
+    146,
+    147,
+    148,
+    149,
+    150,
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160,
+    161,
+    162,
+    163,
+    164
+  ],
+  "displacements": [
+    {
+      "position": 1,
+      "distance": 1.0366648238574712
+    },
+    {
+      "position": 2,
+      "distance": 0.9768808602862256
+    },
+    {
+      "position": 3,
+      "distance": 0.8909684925476115
+    },
+    {
+      "position": 4,
+      "distance": 0.7939878203822462
+    },
+    {
+      "position": 5,
+      "distance": 0.7798541718975479
+    },
+    {
+      "position": 6,
+      "distance": 0.5980336394814527
+    },
+    {
+      "position": 7,
+      "distance": 0.8347445209115113
+    },
+    {
+      "position": 8,
+      "distance": 0.5350524099853219
+    },
+    {
+      "position": 9,
+      "distance": 0.740087844195197
+    },
+    {
+      "position": 10,
+      "distance": 0.7025981459305201
+    },
+    {
+      "position": 11,
+      "distance": 0.6986195833459493
+    },
+    {
+      "position": 12,
+      "distance": 0.42559370332340496
+    },
+    {
+      "position": 13,
+      "distance": 0.6847434829531225
+    },
+    {
+      "position": 14,
+      "distance": 0.5825312258620688
+    },
+    {
+      "position": 15,
+      "distance": 0.4337826409518786
+    },
+    {
+      "position": 16,
+      "distance": 0.3499892771241157
+    },
+    {
+      "position": 17,
+      "distance": 0.28649673543560034
+    },
+    {
+      "position": 18,
+      "distance": 0.3995133975485948
+    },
+    {
+      "position": 19,
+      "distance": 0.31208239724991027
+    },
+    {
+      "position": 20,
+      "distance": 0.3960030885151542
+    },
+    {
+      "position": 21,
+      "distance": 0.29420333492705913
+    },
+    {
+      "position": 22,
+      "distance": 0.4187274820196853
+    },
+    {
+      "position": 23,
+      "distance": 0.41840430849960153
+    },
+    {
+      "position": 24,
+      "distance": 0.22824392602089577
+    },
+    {
+      "position": 25,
+      "distance": 0.432421191463941
+    },
+    {
+      "position": 26,
+      "distance": 0.12554157583045514
+    },
+    {
+      "position": 27,
+      "distance": 0.17029965474218042
+    },
+    {
+      "position": 28,
+      "distance": 0.330604588674577
+    },
+    {
+      "position": 29,
+      "distance": 0.6649886390472428
+    },
+    {
+      "position": 30,
+      "distance": 0.9508924715890124
+    },
+    {
+      "position": 31,
+      "distance": 0.9516663120144564
+    },
+    {
+      "position": 32,
+      "distance": 3.1711947849146553
+    },
+    {
+      "position": 33,
+      "distance": 0.6952284438987761
+    },
+    {
+      "position": 34,
+      "distance": 1.6498945540536882
+    },
+    {
+      "position": 35,
+      "distance": 3.2337547274086504
+    },
+    {
+      "position": 36,
+      "distance": 3.4335473035220954
+    },
+    {
+      "position": 37,
+      "distance": 1.890312608667017
+    },
+    {
+      "position": 38,
+      "distance": 0.6218452695620552
+    },
+    {
+      "position": 39,
+      "distance": 1.1655813281587473
+    },
+    {
+      "position": 40,
+      "distance": 1.1854248986737388
+    },
+    {
+      "position": 41,
+      "distance": 1.1996335177847886
+    },
+    {
+      "position": 42,
+      "distance": 1.0371034765378948
+    },
+    {
+      "position": 43,
+      "distance": 0.9633079962917027
+    },
+    {
+      "position": 44,
+      "distance": 0.6373059195484619
+    },
+    {
+      "position": 45,
+      "distance": 0.6865180473693853
+    },
+    {
+      "position": 46,
+      "distance": 0.7455039164944693
+    },
+    {
+      "position": 47,
+      "distance": 1.1206042701368608
+    },
+    {
+      "position": 48,
+      "distance": 1.7368375717587032
+    },
+    {
+      "position": 49,
+      "distance": 1.5045938067835474
+    },
+    {
+      "position": 50,
+      "distance": 1.0070441997165813
+    },
+    {
+      "position": 51,
+      "distance": 0.8230597590953754
+    },
+    {
+      "position": 52,
+      "distance": 0.8133019859368219
+    },
+    {
+      "position": 53,
+      "distance": 0.7439278317480713
+    },
+    {
+      "position": 54,
+      "distance": 0.9391415979676244
+    },
+    {
+      "position": 55,
+      "distance": 0.9166814958180648
+    },
+    {
+      "position": 56,
+      "distance": 0.9244982803120684
+    },
+    {
+      "position": 57,
+      "distance": 0.8155800190693284
+    },
+    {
+      "position": 58,
+      "distance": 0.802237326234639
+    },
+    {
+      "position": 59,
+      "distance": 1.0317079939328035
+    },
+    {
+      "position": 60,
+      "distance": 5.133095982149053
+    },
+    {
+      "position": 61,
+      "distance": 4.056313389361159
+    },
+    {
+      "position": 62,
+      "distance": 2.1932617902353493
+    },
+    {
+      "position": 63,
+      "distance": 2.686768424805504
+    },
+    {
+      "position": 64,
+      "distance": 4.050162682537701
+    },
+    {
+      "position": 65,
+      "distance": 6.96827053776935
+    },
+    {
+      "position": 66,
+      "distance": 7.6854998450674765
+    },
+    {
+      "position": 67,
+      "distance": 6.222376907298922
+    },
+    {
+      "position": 68,
+      "distance": 4.6665871042168945
+    },
+    {
+      "position": 69,
+      "distance": 3.0714157412358483
+    },
+    {
+      "position": 70,
+      "distance": 2.4146175715765885
+    },
+    {
+      "position": 71,
+      "distance": 2.012477467856028
+    },
+    {
+      "position": 72,
+      "distance": 1.051792154700424
+    },
+    {
+      "position": 73,
+      "distance": 0.48669046556730444
+    },
+    {
+      "position": 74,
+      "distance": 1.7026144282670144
+    },
+    {
+      "position": 75,
+      "distance": 0.6386159071280895
+    },
+    {
+      "position": 76,
+      "distance": 0.40642962417102857
+    },
+    {
+      "position": 77,
+      "distance": 0.4452775459438787
+    },
+    {
+      "position": 78,
+      "distance": 0.48706629598703177
+    },
+    {
+      "position": 79,
+      "distance": 0.5410090488222453
+    },
+    {
+      "position": 80,
+      "distance": 0.6517363652588766
+    },
+    {
+      "position": 81,
+      "distance": 0.3733709792107798
+    },
+    {
+      "position": 82,
+      "distance": 0.5320581247192228
+    },
+    {
+      "position": 83,
+      "distance": 0.4209409434188382
+    },
+    {
+      "position": 84,
+      "distance": 0.594672775711533
+    },
+    {
+      "position": 85,
+      "distance": 0.6855400245770136
+    },
+    {
+      "position": 86,
+      "distance": 0.8181101935390512
+    },
+    {
+      "position": 87,
+      "distance": 0.8996701236676498
+    },
+    {
+      "position": 88,
+      "distance": 0.8672518657377524
+    },
+    {
+      "position": 89,
+      "distance": 0.823381287396921
+    },
+    {
+      "position": 90,
+      "distance": 0.9134438224553938
+    },
+    {
+      "position": 91,
+      "distance": 0.8829583351323499
+    },
+    {
+      "position": 92,
+      "distance": 0.7993353924587684
+    },
+    {
+      "position": 93,
+      "distance": 1.0343868727146257
+    },
+    {
+      "position": 94,
+      "distance": 1.1914962527024493
+    },
+    {
+      "position": 95,
+      "distance": 1.1242169465554168
+    },
+    {
+      "position": 96,
+      "distance": 1.1582754785670593
+    },
+    {
+      "position": 97,
+      "distance": 1.053311285027069
+    },
+    {
+      "position": 98,
+      "distance": 1.0814865802258382
+    },
+    {
+      "position": 99,
+      "distance": 1.2129395661590998
+    },
+    {
+      "position": 100,
+      "distance": 0.9769264720990368
+    },
+    {
+      "position": 101,
+      "distance": 1.0040833019481235
+    },
+    {
+      "position": 102,
+      "distance": 0.8984379302820376
+    },
+    {
+      "position": 103,
+      "distance": 1.1449278152476752
+    },
+    {
+      "position": 104,
+      "distance": 1.131808023687583
+    },
+    {
+      "position": 105,
+      "distance": 0.7681203556177266
+    },
+    {
+      "position": 106,
+      "distance": 0.2793604255678738
+    },
+    {
+      "position": 107,
+      "distance": 0.761517320838757
+    },
+    {
+      "position": 108,
+      "distance": 0.7648364863086277
+    },
+    {
+      "position": 109,
+      "distance": 0.5314050661242399
+    },
+    {
+      "position": 110,
+      "distance": 0.38832675618126977
+    },
+    {
+      "position": 111,
+      "distance": 0.40686866423273405
+    },
+    {
+      "position": 112,
+      "distance": 0.3335544920530074
+    },
+    {
+      "position": 113,
+      "distance": 0.40709649232390865
+    },
+    {
+      "position": 114,
+      "distance": 0.36726504355020406
+    },
+    {
+      "position": 115,
+      "distance": 0.2821285013827831
+    },
+    {
+      "position": 116,
+      "distance": 0.16845384911918498
+    },
+    {
+      "position": 117,
+      "distance": 0.08433257141236326
+    },
+    {
+      "position": 118,
+      "distance": 0.11411362871536772
+    },
+    {
+      "position": 119,
+      "distance": 0.4751236947181757
+    },
+    {
+      "position": 120,
+      "distance": 0.5288747522197869
+    },
+    {
+      "position": 121,
+      "distance": 0.6449649654616685
+    },
+    {
+      "position": 122,
+      "distance": 0.5506800116912013
+    },
+    {
+      "position": 123,
+      "distance": 0.9015676491265997
+    },
+    {
+      "position": 124,
+      "distance": 0.7551535213463594
+    },
+    {
+      "position": 125,
+      "distance": 0.6591558636313316
+    },
+    {
+      "position": 126,
+      "distance": 0.5467198628811658
+    },
+    {
+      "position": 127,
+      "distance": 0.6517222788176738
+    },
+    {
+      "position": 128,
+      "distance": 0.5137145815287126
+    },
+    {
+      "position": 129,
+      "distance": 0.5101132480755527
+    },
+    {
+      "position": 130,
+      "distance": 0.4345224413889808
+    },
+    {
+      "position": 131,
+      "distance": 0.3688000701155599
+    },
+    {
+      "position": 132,
+      "distance": 0.5746489895747817
+    },
+    {
+      "position": 133,
+      "distance": 0.579093018573201
+    },
+    {
+      "position": 134,
+      "distance": 0.33747664186737675
+    },
+    {
+      "position": 135,
+      "distance": 0.6491887489757068
+    },
+    {
+      "position": 136,
+      "distance": 0.8738141566751417
+    },
+    {
+      "position": 137,
+      "distance": 0.6681087530690127
+    },
+    {
+      "position": 138,
+      "distance": 0.5301373716451269
+    },
+    {
+      "position": 139,
+      "distance": 0.3291322869072466
+    },
+    {
+      "position": 140,
+      "distance": 0.2373505072088398
+    },
+    {
+      "position": 141,
+      "distance": 0.21695838767736175
+    },
+    {
+      "position": 142,
+      "distance": 0.21623606689443148
+    },
+    {
+      "position": 143,
+      "distance": 0.17021008463017234
+    },
+    {
+      "position": 144,
+      "distance": 0.14024588119858786
+    },
+    {
+      "position": 145,
+      "distance": 0.108320591139571
+    },
+    {
+      "position": 146,
+      "distance": 0.2537558562472157
+    },
+    {
+      "position": 147,
+      "distance": 0.3804389972071934
+    },
+    {
+      "position": 148,
+      "distance": 0.5263670387429349
+    },
+    {
+      "position": 149,
+      "distance": 0.6009261531286983
+    },
+    {
+      "position": 150,
+      "distance": 0.36729030238348076
+    },
+    {
+      "position": 151,
+      "distance": 0.4483525108846729
+    },
+    {
+      "position": 152,
+      "distance": 0.5045772753843948
+    },
+    {
+      "position": 153,
+      "distance": 0.2797925098474173
+    },
+    {
+      "position": 154,
+      "distance": 0.1905243521240931
+    },
+    {
+      "position": 155,
+      "distance": 0.3722039103609665
+    },
+    {
+      "position": 156,
+      "distance": 0.19619404672436458
+    },
+    {
+      "position": 157,
+      "distance": 0.374062312371992
+    },
+    {
+      "position": 158,
+      "distance": 0.5104702621584859
+    },
+    {
+      "position": 159,
+      "distance": 0.43379951582998155
+    },
+    {
+      "position": 160,
+      "distance": 0.2975626623418762
+    },
+    {
+      "position": 161,
+      "distance": 0.3347513503216054
+    },
+    {
+      "position": 162,
+      "distance": 0.49028968738191947
+    },
+    {
+      "position": 163,
+      "distance": 0.5442494860643607
+    },
+    {
+      "position": 164,
+      "distance": 0.6074779598767456
+    }
+  ],
+  "exclusions": [
+    "165: unresolved C\u03b1 in one or both structures",
+    "166: unresolved C\u03b1 in one or both structures",
+    "167: outside one or both mapped constructs",
+    "168: outside one or both mapped constructs",
+    "169: outside one or both mapped constructs",
+    "170: outside one or both mapped constructs",
+    "171: outside one or both mapped constructs",
+    "172: outside one or both mapped constructs",
+    "173: outside one or both mapped constructs",
+    "174: outside one or both mapped constructs",
+    "175: outside one or both mapped constructs",
+    "176: outside one or both mapped constructs",
+    "177: outside one or both mapped constructs",
+    "178: outside one or both mapped constructs",
+    "179: outside one or both mapped constructs",
+    "180: outside one or both mapped constructs",
+    "181: outside one or both mapped constructs",
+    "182: outside one or both mapped constructs",
+    "183: outside one or both mapped constructs",
+    "184: outside one or both mapped constructs",
+    "185: outside one or both mapped constructs",
+    "186: outside one or both mapped constructs",
+    "187: outside one or both mapped constructs",
+    "188: outside one or both mapped constructs"
+  ],
+  "fitScope": "All shared observed reference C\u03b1 positions; full 188-residue reference coverage denominator",
+  "inputHashes": [
+    "8437988492751467f45bccf59e32f40df7ea71c537698072acfa71b48df2c725",
+    "0d056099fe39283e6d83fbeca1a7610f43c7108ebabb5f42ba0d4fbc4f113c64"
+  ],
+  "algorithm": "Kabsch SVD, determinant +1; column vector: mapped = rotation @ right + translation; numpy 2.4.3"
+}

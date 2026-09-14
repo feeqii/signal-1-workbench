@@ -1,0 +1,70 @@
+import type {
+  CaseManifest,
+  InvestigationState,
+} from "../src/lib/investigation/schema";
+// Synthetic contract fixture only; never served as scientific case data.
+export const fixtureManifest: CaseManifest = {
+  schemaVersion: 1,
+  id: "kras-k55",
+  title: "Test",
+  question: "Test question",
+  reference: {
+    accession: "P01116",
+    isoform: "P01116-2",
+    taxon: 9606,
+    sequence: "AGCV" + "A".repeat(184),
+    sequenceHash: "a".repeat(64),
+  },
+  assays: [],
+  structures: [
+    {
+      id: "a",
+      title: "A",
+      pdbId: "TEST",
+      chainId: "A",
+      url: "/case/kras/a.cif",
+      sha256: "a".repeat(64),
+      mappingUrl: "/case/kras/a.mapping.json",
+      method: "test",
+      context: "synthetic",
+      coverage: [1, 2, 3, 4],
+    },
+    {
+      id: "b",
+      title: "B",
+      pdbId: "TEST2",
+      chainId: "A",
+      url: "/case/kras/b.cif",
+      sha256: "b".repeat(64),
+      mappingUrl: "/case/kras/b.mapping.json",
+      method: "test",
+      context: "synthetic",
+      coverage: [1, 2, 3, 4],
+    },
+  ],
+  assets: [],
+  provenance: [],
+  limitations: [],
+};
+export const fixtureState: InvestigationState = {
+  schemaVersion: 1,
+  caseId: "kras-k55",
+  referenceHash: "a".repeat(64),
+  title: "A question",
+  question: "Does binding change?",
+  selectedPositions: [2],
+  selectedVariant: "G2D",
+  view: { mode: "overlay", leftId: "a", rightId: "b", camera: null },
+  findings: [],
+  panel: [
+    {
+      variant: "G2D",
+      role: "candidate",
+      rationale: "Test a change",
+      expectedObservation: "Changed readout",
+      replicates: 2,
+    },
+  ],
+  comparisonJobId: null,
+  baselineJobId: null,
+};

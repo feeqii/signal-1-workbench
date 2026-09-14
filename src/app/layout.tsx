@@ -1,18 +1,13 @@
 import type { Metadata } from "next";
-
 import "./globals.css";
-
 export const metadata: Metadata = {
-  title: "Signal-1 3D Workbench",
+  title: "Signal 1 · KRAS investigation",
   description:
-    "3D-first target triage platform with Mol*, Open Targets, UniProt, AlphaFold, RCSB, and ChEMBL"
+    "A structure-centred investigation of KRAS binding and abundance, with linked experimental evidence, researcher findings, and reproducible experimental panels.",
 };
-
 export default function RootLayout({
-  children
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body>{children}</body>

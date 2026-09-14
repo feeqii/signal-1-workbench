@@ -1,0 +1,166 @@
+{
+  "referenceExactMatch": [
+    true,
+    true
+  ],
+  "sequenceHash": "9a0ed04ef46e15865a90f9dd0808d7d12c94746c66b0f41228aa2e62516ccbca",
+  "assayCounts": [
+    26012,
+    24873
+  ],
+  "pairedCount": 23072,
+  "unionCount": 27813,
+  "abundanceOnly": 2940,
+  "bindingOnly": 1801,
+  "singleVariantCount": 3202,
+  "duplicateAliases": 0,
+  "fullMutatedSequenceValidation": "Every source row exactly reconstructed from P01116-2 and listed substitutions",
+  "sourceColumns": [
+    "mutant",
+    "mutated_sequence",
+    "DMS_score",
+    "DMS_score_bin"
+  ],
+  "replicatesAndErrors": "Absent from ingested ProteinGym CSVs; available in original paper Supplementary Table 4, not ingested",
+  "doiReconciliation": {
+    "proteingymReferences": [
+      "10.1101/2022.12.06.519122",
+      "10.1101/2022.12.06.519127"
+    ],
+    "correctPreprint": "10.1101/2022.12.06.519122",
+    "published": "10.1038/s41586-023-06954-0",
+    "evidence": "Original authors github.com/lehner-lab/krasddpcams README links .519122; original paper PMC10866706 has published DOI. Binding row .519127 retained as upstream discrepancy."
+  },
+  "structures": {
+    "5O2S": {
+      "labelChain": "A",
+      "authChain": "A",
+      "entityId": "1",
+      "sourceAlignment": {
+        "align_id": "1",
+        "ref_id": "1",
+        "pdbx_PDB_id_code": "5O2S",
+        "pdbx_strand_id": "A",
+        "seq_align_beg": "4",
+        "pdbx_seq_align_beg_ins_code": "?",
+        "seq_align_end": "169",
+        "pdbx_seq_align_end_ins_code": "?",
+        "pdbx_db_accession": "P01116",
+        "db_align_beg": "1",
+        "pdbx_db_align_beg_ins_code": "?",
+        "db_align_end": "166",
+        "pdbx_db_align_end_ins_code": "?",
+        "pdbx_auth_seq_align_beg": "1",
+        "pdbx_auth_seq_align_end": "166"
+      },
+      "constructMutations": [
+        "G12V"
+      ],
+      "unresolved": [
+        166
+      ],
+      "outsideConstruct": [
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183,
+        184,
+        185,
+        186,
+        187,
+        188
+      ],
+      "ligands": [
+        "GDP",
+        "MG"
+      ],
+      "depositedTitle": "Human KRAS in complex with darpin K27",
+      "method": "X-RAY DIFFRACTION",
+      "resolutionAngstrom": 3.22,
+      "mappingMethod": "mmCIF _struct_ref_seq P01116 alignment joined through _pdbx_poly_seq_scheme; full construct identity checked with declared _struct_ref_seq_dif mutations; chain A model 1; highest occupancy CA"
+    },
+    "5O2T": {
+      "labelChain": "A",
+      "authChain": "A",
+      "entityId": "1",
+      "sourceAlignment": {
+        "align_id": "1",
+        "ref_id": "1",
+        "pdbx_PDB_id_code": "5O2T",
+        "pdbx_strand_id": "A",
+        "seq_align_beg": "4",
+        "pdbx_seq_align_beg_ins_code": "?",
+        "seq_align_end": "169",
+        "pdbx_seq_align_end_ins_code": "?",
+        "pdbx_db_accession": "P01116",
+        "db_align_beg": "1",
+        "pdbx_db_align_beg_ins_code": "?",
+        "db_align_end": "166",
+        "pdbx_db_align_end_ins_code": "?",
+        "pdbx_auth_seq_align_beg": "1",
+        "pdbx_auth_seq_align_end": "166"
+      },
+      "constructMutations": [
+        "G12V"
+      ],
+      "unresolved": [
+        165,
+        166
+      ],
+      "outsideConstruct": [
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183,
+        184,
+        185,
+        186,
+        187,
+        188
+      ],
+      "ligands": [
+        "GSP",
+        "MG",
+        "SO4"
+      ],
+      "depositedTitle": "Human KRAS in complex with darpin K27",
+      "method": "X-RAY DIFFRACTION",
+      "resolutionAngstrom": 2.19,
+      "mappingMethod": "mmCIF _struct_ref_seq P01116 alignment joined through _pdbx_poly_seq_scheme; full construct identity checked with declared _struct_ref_seq_dif mutations; chain A model 1; highest occupancy CA"
+    }
+  },
+  "independentSuperposition": {
+    "method": "Gemmi 0.7.5 superpose_positions (QCP)",
+    "rmsd": 1.507623104892868,
+    "numpyRmsd": 1.5076231048929027,
+    "absoluteDifference": 3.4638958368304884e-14,
+    "count": 164
+  },
+  "mappingFixtureStatus": "Software fixtures only; external expert review pending"
+}

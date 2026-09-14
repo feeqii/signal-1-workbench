@@ -1,110 +1,77 @@
-# Signal-1: 3D-First Target Workbench
+# Signal 1 · KRAS investigation
 
-Signal-1 is a 3D-first biology interface for target triage. The goal is simple: keep structural evidence, confidence signals, and therapy context in one decision surface so teams can move from "what changed?" to "is this target actionable?" faster.
+A local research workspace linking measured KRAS abundance and DARPin K55 binding assays to experimental structures, findings, and an experimental panel. This branch implements the first bounded investigation workflow from the approved revamp.
 
-This repo is the baseline implementation.
+## Run locally
 
-## Problem We Are Solving
+Requires Node.js 22 and Python 3.12 or newer on macOS or Linux. The database ownership lock uses POSIX `flock`; native Windows is not supported. Use one server per data directory.
 
-Modern target evaluation is fragmented:
-
-- Structure interpretation happens in one tool, target/disease/drug context in others.
-- WT vs mutant, isoform vs canonical, and PDB vs AlphaFold comparisons are manual and slow.
-- Confidence data (pLDDT/PAE) is often hidden behind separate files or workflows.
-- Collaboration is ephemeral; analysis steps are not consistently reproducible or shareable.
-
-Result: high context-switching cost, slower decisions, and weaker traceability.
-
-## Baseline Solution In This Repo
-
-Signal-1 ships a working, open-source-first baseline with these capabilities:
-
-### 1. 3D-first workspace with Mol*
-- Mol* is the center of the UI, not a side panel.
-- Structures can be loaded as a pair for direct visual comparison.
-- Scene reload and structure switching are first-class actions.
-
-### 2. Live compare modes
-- `WT vs mutant`
-- `Isoform vs canonical`
-- `Experimental PDB vs AlphaFold`
-- Default compare pairs are automatically selected from resolved target metadata.
-
-### 3. Confidence storytelling
-- AlphaFold `pLDDT` and `PAE` payloads are fetched and summarized in the UI.
-- Parsing runs in a Web Worker (`public/workers/confidence.worker.js`) to keep the main thread responsive.
-- The workbench exposes confidence rollups (mean pLDDT, high/low-confidence residues, PAE mean/max).
-
-### 4. Target-to-therapy context in-session
-- Disease associations and drug context are shown in a target-centric graph.
-- Node selection is interactive and tracked as part of the analysis record.
-
-### 5. Collab + playback story
-- Key actions are recorded as timestamped events (`target-loaded`, `mode-changed`, `annotation-added`, etc.).
-- Stories are shareable by URL.
-- Multi-user cursors + residue annotation sync run over WebSocket rooms.
-
-### 6. Open-source data integration through one adapter layer
-- `UniProt` for canonical protein identity and metadata
-- `RCSB` for experimental structure metadata
-- `AlphaFold DB` for predicted structures and confidence documents
-- `Open Targets` for target-disease-drug evidence
-- `ChEMBL` for mechanism-linked compounds
-
-All upstreams are normalized via a single BFF endpoint: `GET /api/resolve?gene=...`
-
-## Why This Is Useful
-
-This baseline compresses the triage loop into one place:
-
-- Faster structural reasoning: compare modes and confidence overlays are immediate.
-- Better translational context: disease and drug evidence stays adjacent to structure analysis.
-- Higher reproducibility: analysis becomes a shareable story instead of a screenshot trail.
-- Easier evolution: adapter-based architecture isolates upstream API churn from the UI.
-
-## Architecture
-
-- Frontend: `Next.js` (App Router), `React`, `Tailwind CSS`
-- 3D rendering: `Mol*` loaded in-browser
-- BFF/API normalization: Next route handlers in `src/app/api/*`
-- Realtime channel: `Socket.IO` at `src/pages/api/socket.ts`
-- Caching: in-memory by default, optional Redis REST via `src/lib/cache.ts`
-- Background compute: worker-based confidence parsing
-
-## Key Files
-
-- `src/components/workbench.tsx`: main 3D-first product surface
-- `src/components/molstar-viewer.tsx`: Mol* bootstrapping + structure loading
-- `src/components/therapy-graph.tsx`: target-disease-drug graph UI
-- `src/app/api/resolve/route.ts`: open-data adapter/orchestration endpoint
-- `src/app/api/story/route.ts`: story share/load API
-- `src/pages/api/socket.ts`: collaboration transport
-- `public/workers/confidence.worker.js`: pLDDT/PAE summarization
-
-## Run Locally
-
-```bash
-npm install
+```sh
+npm ci --ignore-scripts
+python3 -m venv .venv
+.venv/bin/python -m pip install -r scientific/requirements.txt
 npm run dev
 ```
 
-Then open [http://localhost:3000](http://localhost:3000).
+Open [Signal 1](http://127.0.0.1:3000). For a production build, stop the development server, run `npm run build`, then `npm start`. Both commands bind to loopback. Do not expose this unauthenticated local app to a network.
 
-## Optional Environment Variables
+The application owns an embedded PostgreSQL database through PGlite in `.signal1/data`. No PostgreSQL server or Docker setup is needed. Investigations, revisions, and calculation jobs survive process restarts. A recurring worker inside the application claims queued jobs and recovers expired leases; `npm run jobs` can request an immediate drain from an already running app. Python workers are stateless and do not open the database.
 
-- `REDIS_REST_URL`: Redis REST endpoint for shared cache
-- `REDIS_REST_TOKEN`: Redis REST token
-- `ALPHAFOLD_API_BASE`: override AlphaFold adapter base URL
+Optional settings are listed in `.env.example`: `SIGNAL1_DATA_DIR`, `SIGNAL1_PYTHON`, and `SIGNAL1_URL` for command-line checks. Set these in the process environment; helper scripts do not load `.env` files. For an alternate port, use `npm run dev -- --port 4311` or `npm start -- --port 4311`.
 
-## Current Baseline Boundaries
+## Research workflow
 
-- Story persistence is in-memory (process-local); not durable across restarts.
-- Authn/authz and role-based collaboration controls are not yet implemented.
-- No server-side job queue yet for heavy structural pre-processing.
-- Confidence is currently surfaced as numeric storytelling, not residue heatmap painting in-viewer.
+1. Open or create an investigation and edit the research question.
+2. Select a variant in the paired assay plot or searchable table. Its substitutions link to the reference sequence and mapped 3D structure. Sequence and structure clicks select reference residues.
+3. Inspect experimental coverage, the fitted overlay/split view, and per-residue displacement. Recalculate a fit over all shared residues or a selected region.
+4. Record observations or hypotheses with contradictory evidence. Add candidate variants and explicit positive/negative controls, rationale, expected observations, and repeats.
+5. Review the brief and export the saved investigation. Import a JSON bundle to reopen an independently identified copy.
 
-## API Change Resilience Notes
+Edits autosave with revision checking. A failed save retains the local draft; conflicts require explicit recovery rather than silently overwriting another view.
 
-- AlphaFold access goes through an adapter with legacy fallback support.
-- Open Targets and other external payloads are normalized before reaching UI components.
-- This architecture is designed so upstream API/version changes can be handled in one place.
+## Evidence and boundaries
+
+- Exact reference: UniProt **P01116-2**, 188 residues.
+- **27,813** measured variants across the two ProteinGym v1.3 curated Weng assays; **23,072** have both readouts. Missing values remain missing. Fitness scores are not abundance concentrations or binding affinities.
+- Experimental structures **5O2S / 5O2T**, chain A, both **G12V** with different binders, nucleotides, and crystal contexts. The full fit uses **164 Cα pairs**, RMSD **1.507623 Å**. This is a descriptive structural comparison, not an isolated mutation effect.
+- BLOSUM62 is a published substitution compatibility prior, including an explicitly additive combination score. It is not a new trained model or a prediction of either assay. No model training is included.
+- Experimental X-ray structures do not have AlphaFold pLDDT/PAE; the interface states their absence.
+- Original replicate-level Supplementary Table 4 was not ingested. Replicate errors, statistical significance, expert biological approval, and prospective experimental usefulness are not claimed.
+
+See [case provenance](docs/revamp/kras-case.md), the frozen [manifest](public/case/kras/manifest.json), and [implementation evidence](docs/revamp/implementation-status.md). All supported case assets are local and checksum-verified; investigation use needs no live scientific data service.
+
+## Export formats
+
+- **JSON**: saved state, complete source manifest, original and derived assets with hashes, and referenced completed calculations. Import validates the exact bounded case, checks every byte, and recomputes archived results before restoring new investigation/job identities.
+- **Markdown**: research brief with evidence boundaries and provenance.
+- **CSV**: experiment panel; spreadsheet formula prefixes are escaped.
+- **MVSX**: portable MolViewSpec archive with both mmCIFs, fitted overlay, mapped residue colors, camera when saved, and coordinate attribution. A split workspace exports an overlay. Findings and measurements are carried by the separate JSON bundle.
+
+## Verify
+
+```sh
+npm test
+.venv/bin/python -m unittest discover -s scientific/tests -v
+npm run lint
+npm run typecheck
+npm run build
+```
+
+With the application running against a disposable verification data directory:
+
+```sh
+SIGNAL1_URL=http://127.0.0.1:3000 node scripts/verify-api.mjs
+```
+
+The API check creates test investigations, validates revision conflicts and actual calculations, and exports/imports the full bundle. CI runs the application and scientific checks plus this production API workflow. Offline case regeneration is available through `.venv/bin/python scripts/curate-case.py`; it uses frozen source files and does not fetch replacements.
+
+## Implementation map
+
+- `src/components/workbench.tsx` and `components/investigation/`: linked research UI.
+- `src/components/molstar-viewer.tsx`: pinned Mol* scene lifecycle, mappings, and camera.
+- `src/lib/investigation/`: schemas, case validation, revisions, jobs, exports, and client save coordination.
+- `scientific/`: validated residue correspondence, rigid comparison, and published substitution prior.
+- `public/case/kras/`: immutable supported scientific case with attribution.
+- `scripts/verify-api.mjs` and `.github/workflows/checks.yml`: integration checks.
+
+The previous generic target resolver, temporary story sharing, and socket collaboration endpoints are retired in this workflow. Historical adapters and `legacy-static` remain reference material. Hosted collaboration, authentication, additional proteins, general structure uploads, trained predictors, and deployment are outside this implementation.

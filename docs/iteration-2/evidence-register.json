@@ -1,0 +1,374 @@
+{
+  "review_date": "2026-09-14",
+  "repository_commit": "3b4719e",
+  "artifact_status": "research and proposal; no implementation changes",
+  "sources": [
+    {
+      "id": 1,
+      "reference": "Signal 1 local repository, commit `3b4719e`, reviewed 14 September 2026. Files: [README](../../README.md), [case schema and loader](../../src/lib/investigation/case.ts), [investigation schema](../../src/lib/investigation/schema.ts), [scientific mapping](../../scientific/case_data.py), [job definitions](../../src/lib/investigation/jobs.ts), [assay view](../../src/components/investigation/evidence.tsx), [implementation evidence](../revamp/implementation-status.md). Local access; newer implementation not present on the public main branch at review time. Application and scientific tests passed in the preceding review in this task; no new biological validation is implied.",
+      "urls": [],
+      "short_title": "Signal 1 local source, commit 3b4719e (2026). See Sources for files.",
+      "cited_in": [
+        "1. Scientific direction",
+        "3. Molecular identity and experimental context",
+        "4. Experimental evidence and uncertainty",
+        "6. Fitted mechanisms and competing explanations",
+        "10. Architecture and delivery sequence"
+      ],
+      "accessed": "2026-09-14",
+      "evidence_kind": "local repository",
+      "scope_note": "No new dataset ingestion, model fitting, scientific benchmark or user study was performed in this research cycle."
+    },
+    {
+      "id": 2,
+      "reference": "MaveDB. [Visualizations](https://www.mavedb.org/docs/mavedb/finding-data/visualizations.html). Official documentation, accessed 14 September 2026. Linked heatmaps, residue selection and AlphaFold structure display.",
+      "urls": [
+        "https://www.mavedb.org/docs/mavedb/finding-data/visualizations.html"
+      ],
+      "short_title": "MaveDB, Visualizations (official documentation).",
+      "cited_in": [
+        "1. Scientific direction"
+      ],
+      "accessed": "2026-09-14",
+      "evidence_kind": "official documentation or implementation",
+      "scope_note": "No new dataset ingestion, model fitting, scientific benchmark or user study was performed in this research cycle."
+    },
+    {
+      "id": 3,
+      "reference": "Navarro, C., et al. [Speak to a Protein: An Interactive Multimodal Co-Scientist for Protein Analysis](https://arxiv.org/html/2510.17826v1). arXiv:2510.17826v1, 1 October 2025. Preprint; system description and case studies, not an independent comparative effectiveness trial.",
+      "urls": [
+        "https://arxiv.org/html/2510.17826v1"
+      ],
+      "short_title": "Navarro et al., Speak to a Protein (2025; preprint).",
+      "cited_in": [
+        "1. Scientific direction"
+      ],
+      "accessed": "2026-09-14",
+      "evidence_kind": "preprint",
+      "scope_note": "No new dataset ingestion, model fitting, scientific benchmark or user study was performed in this research cycle."
+    },
+    {
+      "id": 4,
+      "reference": "Hidalgo-Carcedo, C., et al. [Allosteric and energetic remodeling of a PDZ domain by protein domain extensions](https://pubmed.ncbi.nlm.nih.gov/41714636/). Nature Communications 17, 2934, 19 February 2026. DOI: 10.1038/s41467-026-69673-w. Primary abstract and figure descriptions inspected through PubMed; publisher PDF text also available in indexed retrieval.",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/41714636/"
+      ],
+      "short_title": "Hidalgo-Carcedo et al., PDZ domain extensions (2026).",
+      "cited_in": [
+        "1. Scientific direction",
+        "3. Molecular identity and experimental context"
+      ],
+      "accessed": "2026-09-14",
+      "evidence_kind": "primary research",
+      "scope_note": "No new dataset ingestion, model fitting, scientific benchmark or user study was performed in this research cycle."
+    },
+    {
+      "id": 5,
+      "reference": "MaveDB. [Targets](https://www.mavedb.org/docs/mavedb/submitting-data/targets.html). Official documentation, accessed 14 September 2026. Sequence-based, accession-based and multi-target records.",
+      "urls": [
+        "https://www.mavedb.org/docs/mavedb/submitting-data/targets.html"
+      ],
+      "short_title": "MaveDB, Targets (official documentation).",
+      "cited_in": [
+        "2. Arbitrary-protein support"
+      ],
+      "accessed": "2026-09-14",
+      "evidence_kind": "official documentation or implementation",
+      "scope_note": "No new dataset ingestion, model fitting, scientific benchmark or user study was performed in this research cycle."
+    },
+    {
+      "id": 6,
+      "reference": "PDBe. [SIFTS methodology](https://www.ebi.ac.uk/pdbe/docs/sifts/methodology.html) and [SIFTS overview](https://www.ebi.ac.uk/pdbe/docs/sifts/). Official documentation, accessed 14 September 2026. Residue correspondences and unobserved regions.",
+      "urls": [
+        "https://www.ebi.ac.uk/pdbe/docs/sifts/methodology.html",
+        "https://www.ebi.ac.uk/pdbe/docs/sifts/"
+      ],
+      "short_title": "PDBe, SIFTS methodology and overview.",
+      "cited_in": [
+        "3. Molecular identity and experimental context"
+      ],
+      "accessed": "2026-09-14",
+      "evidence_kind": "official documentation or implementation",
+      "scope_note": "No new dataset ingestion, model fitting, scientific benchmark or user study was performed in this research cycle."
+    },
+    {
+      "id": 7,
+      "reference": "RCSB PDB. [Web APIs overview](https://www.rcsb.org/docs/programmatic-access/web-apis-overview). Official documentation, accessed 14 September 2026. Entry/entity/instance/assembly hierarchy and search interfaces.",
+      "urls": [
+        "https://www.rcsb.org/docs/programmatic-access/web-apis-overview"
+      ],
+      "short_title": "RCSB PDB, Web APIs overview.",
+      "cited_in": [
+        "3. Molecular identity and experimental context"
+      ],
+      "accessed": "2026-09-14",
+      "evidence_kind": "official documentation or implementation",
+      "scope_note": "No new dataset ingestion, model fitting, scientific benchmark or user study was performed in this research cycle."
+    },
+    {
+      "id": 8,
+      "reference": "Marti-Aranda, A., and Lehner, B. [Seven complete comparative maps of allosteric mutations in a protein family](https://www.nature.com/articles/s41467-026-71005-x). Nature Communications, 21 April 2026. DOI: 10.1038/s41467-026-71005-x. Publisher PDF and indexed primary text inspected; [PMC copy](https://pmc.ncbi.nlm.nih.gov/articles/PMC13284222/).",
+      "urls": [
+        "https://www.nature.com/articles/s41467-026-71005-x",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC13284222/"
+      ],
+      "short_title": "Marti-Aranda and Lehner, Comparative allosteric maps (2026).",
+      "cited_in": [
+        "3. Molecular identity and experimental context",
+        "6. Fitted mechanisms and competing explanations"
+      ],
+      "accessed": "2026-09-14",
+      "evidence_kind": "primary research",
+      "scope_note": "No new dataset ingestion, model fitting, scientific benchmark or user study was performed in this research cycle."
+    },
+    {
+      "id": 9,
+      "reference": "MaveDB. [Key concepts](https://www.mavedb.org/docs/mavedb/getting-started/key-concepts.html). Official documentation, accessed 14 September 2026. Experiments, score sets, uncertainty columns, counts and derived analyses.",
+      "urls": [
+        "https://www.mavedb.org/docs/mavedb/getting-started/key-concepts.html"
+      ],
+      "short_title": "MaveDB, Key concepts (official documentation).",
+      "cited_in": [
+        "4. Experimental evidence and uncertainty"
+      ],
+      "accessed": "2026-09-14",
+      "evidence_kind": "official documentation or implementation",
+      "scope_note": "No new dataset ingestion, model fitting, scientific benchmark or user study was performed in this research cycle."
+    },
+    {
+      "id": 10,
+      "reference": "Matreyek, K. A., et al. [Multiplex assessment of protein variant abundance by massively parallel sequencing](https://pubmed.ncbi.nlm.nih.gov/29785012/). Nature Genetics 50, 874-882, 2018. DOI: 10.1038/s41588-018-0122-z. Primary abstract and author-hosted paper identified; complete new case curation remains pending.",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/29785012/"
+      ],
+      "short_title": "Matreyek et al., Multiplex assessment of variant abundance (2018).",
+      "cited_in": [
+        "4. Experimental evidence and uncertainty",
+        "9. Validation and scientific programme"
+      ],
+      "accessed": "2026-09-14",
+      "evidence_kind": "primary research",
+      "scope_note": "No new dataset ingestion, model fitting, scientific benchmark or user study was performed in this research cycle."
+    },
+    {
+      "id": 11,
+      "reference": "Mighell, T. L., Evans-Dutson, S., and O'Roak, B. J. [A Saturation Mutagenesis Approach to Understanding PTEN Lipid Phosphatase Activity and Genotype-Phenotype Relationships](https://pmc.ncbi.nlm.nih.gov/articles/PMC5986715/). American Journal of Human Genetics 102, 943-955, 2018. DOI: 10.1016/j.ajhg.2018.03.018. Primary indexed text; distinguishes measured estimates and imputation.",
+      "urls": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC5986715/"
+      ],
+      "short_title": "Mighell et al., PTEN lipid phosphatase activity scan (2018).",
+      "cited_in": [
+        "4. Experimental evidence and uncertainty",
+        "9. Validation and scientific programme"
+      ],
+      "accessed": "2026-09-14",
+      "evidence_kind": "primary research",
+      "scope_note": "No new dataset ingestion, model fitting, scientific benchmark or user study was performed in this research cycle."
+    },
+    {
+      "id": 12,
+      "reference": "Gemmi. [Structure analysis](https://gemmi.readthedocs.io/en/stable/analysis.html). Official stable documentation, retrieved page labelled 0.7.5; accessed 14 September 2026. Alignment, superposition, neighbour and contact search. Numerical conventions must be checked against the pinned runtime.",
+      "urls": [
+        "https://gemmi.readthedocs.io/en/stable/analysis.html"
+      ],
+      "short_title": "Gemmi, Structure analysis (stable documentation).",
+      "cited_in": [
+        "5. Structural mechanisms and ensembles"
+      ],
+      "accessed": "2026-09-14",
+      "evidence_kind": "official documentation or implementation",
+      "scope_note": "No new dataset ingestion, model fitting, scientific benchmark or user study was performed in this research cycle."
+    },
+    {
+      "id": 13,
+      "reference": "EMBL-EBI. [Evaluating AlphaFold2's predicted structures using confidence scores](https://www.ebi.ac.uk/training/online/courses/alphafold/inputs-and-outputs/evaluating-alphafolds-predicted-structures-using-confidence-scores/) and [AlphaFold DB FAQ](https://alphafold.ebi.ac.uk/faq). Official training and documentation, accessed 14 September 2026. Producer-specific confidence interpretation.",
+      "urls": [
+        "https://www.ebi.ac.uk/training/online/courses/alphafold/inputs-and-outputs/evaluating-alphafolds-predicted-structures-using-confidence-scores/",
+        "https://alphafold.ebi.ac.uk/faq"
+      ],
+      "short_title": "EMBL-EBI, AlphaFold confidence training and database FAQ.",
+      "cited_in": [
+        "5. Structural mechanisms and ensembles"
+      ],
+      "accessed": "2026-09-14",
+      "evidence_kind": "official documentation or implementation",
+      "scope_note": "No new dataset ingestion, model fitting, scientific benchmark or user study was performed in this research cycle."
+    },
+    {
+      "id": 14,
+      "reference": "PLIP maintainers. [Protein-Ligand Interaction Profiler](https://github.com/pharmai/plip). Official implementation, accessed 14 September 2026. Interaction typing and preparation-related reproducibility limitations; repository cites the 2025 update, DOI: 10.1093/nar/gkaf361.",
+      "urls": [
+        "https://github.com/pharmai/plip"
+      ],
+      "short_title": "PLIP, official implementation and preparation limitations.",
+      "cited_in": [
+        "5. Structural mechanisms and ensembles"
+      ],
+      "accessed": "2026-09-14",
+      "evidence_kind": "official documentation or implementation",
+      "scope_note": "No new dataset ingestion, model fitting, scientific benchmark or user study was performed in this research cycle."
+    },
+    {
+      "id": 15,
+      "reference": "Faure, A. J., and Lehner, B. [MoCHI: neural networks to fit interpretable models and quantify energies, energetic couplings, epistasis, and allostery from deep mutational scanning data](https://link.springer.com/article/10.1186/s13059-024-03444-y). Genome Biology 25, 303, 2 December 2024.",
+      "urls": [
+        "https://link.springer.com/article/10.1186/s13059-024-03444-y"
+      ],
+      "short_title": "Faure and Lehner, MoCHI (Genome Biology, 2024).",
+      "cited_in": [
+        "6. Fitted mechanisms and competing explanations"
+      ],
+      "accessed": "2026-09-14",
+      "evidence_kind": "primary research",
+      "scope_note": "No new dataset ingestion, model fitting, scientific benchmark or user study was performed in this research cycle."
+    },
+    {
+      "id": 16,
+      "reference": "Lehner laboratory. [MoCHI implementation](https://github.com/lehner-lab/MoCHI). Official repository, accessed 14 September 2026. Model-design format, supported transformations, phenotype files and error estimates.",
+      "urls": [
+        "https://github.com/lehner-lab/MoCHI"
+      ],
+      "short_title": "Lehner laboratory, MoCHI implementation and input contract.",
+      "cited_in": [
+        "6. Fitted mechanisms and competing explanations"
+      ],
+      "accessed": "2026-09-14",
+      "evidence_kind": "official documentation or implementation",
+      "scope_note": "No new dataset ingestion, model fitting, scientific benchmark or user study was performed in this research cycle."
+    },
+    {
+      "id": 17,
+      "reference": "Faure, A. J., et al. [Mapping the energetic and allosteric landscapes of protein binding domains](https://www.nature.com/articles/s41586-022-04586-4). Nature 604, 175-183, 6 April 2022. Primary text and supplementary-file descriptions inspected; complete reproduction remains pending.",
+      "urls": [
+        "https://www.nature.com/articles/s41586-022-04586-4"
+      ],
+      "short_title": "Faure et al., Protein binding-domain landscapes (Nature, 2022).",
+      "cited_in": [
+        "6. Fitted mechanisms and competing explanations",
+        "9. Validation and scientific programme"
+      ],
+      "accessed": "2026-09-14",
+      "evidence_kind": "primary research",
+      "scope_note": "No new dataset ingestion, model fitting, scientific benchmark or user study was performed in this research cycle."
+    },
+    {
+      "id": 18,
+      "reference": "Yang, J., et al. [Active learning-assisted directed evolution](https://www.nature.com/articles/s41467-025-55987-8). Nature Communications 16, 714, 2025. A specific experimental engineering demonstration, not a guarantee for arbitrary proteins.",
+      "urls": [
+        "https://www.nature.com/articles/s41467-025-55987-8"
+      ],
+      "short_title": "Yang et al., Active learning-assisted directed evolution (2025).",
+      "cited_in": [
+        "7. Experimental design and the results loop"
+      ],
+      "accessed": "2026-09-14",
+      "evidence_kind": "primary research",
+      "scope_note": "No new dataset ingestion, model fitting, scientific benchmark or user study was performed in this research cycle."
+    },
+    {
+      "id": 19,
+      "reference": "Greenman, K. P., Amini, A. P., and Yang, K. K. [Benchmarking uncertainty quantification for protein engineering](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1012639). PLOS Computational Biology, 2025. Retrospective uncertainty, active-learning and optimization comparisons on specified landscapes.",
+      "urls": [
+        "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1012639"
+      ],
+      "short_title": "Greenman et al., Protein uncertainty benchmark (PLOS, 2025).",
+      "cited_in": [
+        "7. Experimental design and the results loop"
+      ],
+      "accessed": "2026-09-14",
+      "evidence_kind": "primary research",
+      "scope_note": "No new dataset ingestion, model fitting, scientific benchmark or user study was performed in this research cycle."
+    },
+    {
+      "id": 20,
+      "reference": "OATML/Marks laboratory. [ProteinGym](https://github.com/OATML-Markslab/ProteinGym). Official repository, accessed 14 September 2026; listed release PG_v1.3, 28 April 2025. Published baseline and benchmark inventory, not a performed Signal 1 evaluation.",
+      "urls": [
+        "https://github.com/OATML-Markslab/ProteinGym"
+      ],
+      "short_title": "OATML/Marks laboratory, ProteinGym, listed release v1.3.",
+      "cited_in": [
+        "8. Method portfolio and ambitious extensions"
+      ],
+      "accessed": "2026-09-14",
+      "evidence_kind": "official documentation or implementation",
+      "scope_note": "No new dataset ingestion, model fitting, scientific benchmark or user study was performed in this research cycle."
+    },
+    {
+      "id": 21,
+      "reference": "Didi, K., et al. [FLIP2: Expanding Protein Fitness Landscape Benchmarks for Real-World Machine Learning Applications](https://flip.protein.properties/). Author-maintained project and results site, listed as ICML 2026. [Official repository](https://github.com/J-SNACKKB/FLIP). Accessed 14 September 2026. Paper link did not resolve in this session; conclusions here are limited to the detailed official project material.",
+      "urls": [
+        "https://flip.protein.properties/",
+        "https://github.com/J-SNACKKB/FLIP"
+      ],
+      "short_title": "Didi et al., FLIP2 (official project material, ICML 2026).",
+      "cited_in": [
+        "8. Method portfolio and ambitious extensions"
+      ],
+      "accessed": "2026-09-14",
+      "evidence_kind": "official documentation or implementation",
+      "scope_note": "No new dataset ingestion, model fitting, scientific benchmark or user study was performed in this research cycle."
+    },
+    {
+      "id": 22,
+      "reference": "Westlake REPL. [SaProt implementation](https://github.com/westlake-repl/SaProt). Official repository, accessed 14 September 2026. Checkpoint-specific structure-aware input requirements and mutation-scoring examples.",
+      "urls": [
+        "https://github.com/westlake-repl/SaProt"
+      ],
+      "short_title": "Westlake REPL, SaProt implementation and checkpoint guidance.",
+      "cited_in": [
+        "8. Method portfolio and ambitious extensions"
+      ],
+      "accessed": "2026-09-14",
+      "evidence_kind": "official documentation or implementation",
+      "scope_note": "No new dataset ingestion, model fitting, scientific benchmark or user study was performed in this research cycle."
+    },
+    {
+      "id": 23,
+      "reference": "Boltz maintainers. [Prediction instructions](https://github.com/jwohlwend/boltz/blob/main/docs/prediction.md) and [official repository](https://github.com/jwohlwend/boltz). Accessed 14 September 2026. Small-molecule affinity input scope and separate output semantics.",
+      "urls": [
+        "https://github.com/jwohlwend/boltz/blob/main/docs/prediction.md",
+        "https://github.com/jwohlwend/boltz"
+      ],
+      "short_title": "Boltz, official prediction instructions and affinity input scope.",
+      "cited_in": [
+        "8. Method portfolio and ambitious extensions"
+      ],
+      "accessed": "2026-09-14",
+      "evidence_kind": "official documentation or implementation",
+      "scope_note": "No new dataset ingestion, model fitting, scientific benchmark or user study was performed in this research cycle."
+    },
+    {
+      "id": 24,
+      "reference": "Wan, S., Zhang, X., Xue, X., and Coveney, P. V. [On the Reliability of AI Methods in Drug Discovery: Evaluation of Boltz-2 for Structure and Binding Affinity Prediction](https://arxiv.org/abs/2603.05532). arXiv:2603.05532v1, 2 March 2026. Preprint; abstract inspected, with comparator and scope retained.",
+      "urls": [
+        "https://arxiv.org/abs/2603.05532"
+      ],
+      "short_title": "Wan et al., Boltz-2 reliability evaluation (2026; preprint).",
+      "cited_in": [
+        "8. Method portfolio and ambitious extensions"
+      ],
+      "accessed": "2026-09-14",
+      "evidence_kind": "preprint",
+      "scope_note": "No new dataset ingestion, model fitting, scientific benchmark or user study was performed in this research cycle."
+    }
+  ],
+  "local_evidence": [
+    {
+      "path": "/Users/feeq/.codex/.chatgpt-projects/g-p-6aa6c46851d081918eeac4e4b74e44f3/signal-1-implementation/src/lib/investigation/case.ts",
+      "finding": "Case id, accession, sequence length and asset paths are fixed to KRAS."
+    },
+    {
+      "path": "/Users/feeq/.codex/.chatgpt-projects/g-p-6aa6c46851d081918eeac4e4b74e44f3/signal-1-implementation/scientific/case_data.py",
+      "finding": "P01116-specific equal-span archive mapping."
+    },
+    {
+      "path": "/Users/feeq/.codex/.chatgpt-projects/g-p-6aa6c46851d081918eeac4e4b74e44f3/signal-1-implementation/src/lib/investigation/schema.ts",
+      "finding": "Fixed abundance/binding observations and variant-only experiment panel identity."
+    }
+  ],
+  "material_access_limits": [
+    "FLIP2 paper link did not resolve; detailed official project material and repository were accessible.",
+    "New PTEN and domain case sources were identified but full data curation and numerical reproduction remain future work.",
+    "Boltz-2 external critique treated as a preprint with computational comparators, not a universal verdict."
+  ]
+}

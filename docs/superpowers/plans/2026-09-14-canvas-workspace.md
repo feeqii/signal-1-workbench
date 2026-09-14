@@ -57,8 +57,8 @@
 
 - [x] Run full application suite, lint, type checking and production build; use a dedicated QA investigation copy for editable flow testing.
 - [ ] Inspect Chrome desktop layout and exercise 3D rotation/click, sequence, region shortcut, variant search/table/plot, displacement, focus/reset, overlay/split and refits.
-- [ ] Exercise notebook create/edit, panel controls/validation, revisions/reload/switch, JSON/Markdown/CSV/MVSX exports. Check keyboard dialog focus/Escape, narrow layout and browser zoom.
+- [x] Exercise notebook create/edit, panel controls/validation, revisions/reload/switch, JSON/Markdown/CSV/MVSX exports. Check keyboard dialog focus/Escape, narrow layout and browser zoom.
 - [x] Dispatch independent spec/code review, fix meaningful issues and recheck changed behavior.
-- [ ] Record observed results and limitations; commit completed changes and leave the redesigned preview open in Chrome.
+- [x] Record observed results and limitations; commit completed changes and leave the redesigned preview open in Chrome.
 
-Observed coverage and the Mac-unlock limitation are recorded in `docs/revamp/ui-review-2026-09-14.md`; the remaining broad checklist entries are not claimed as fully covered.
+Observed coverage is recorded in `docs/revamp/ui-review-2026-09-14.md`. The production Chrome pass and scrolling follow-up are complete. The remaining broad interaction checklist is not claimed as fully covered: free rotation and paired-plot point clicking were outside the observed checks; displacement selection was verified with both keyboard and pointer.

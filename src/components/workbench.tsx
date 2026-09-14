@@ -30,7 +30,11 @@ export function Workbench() {
     useEffect(() => {
         if (!assaysOpen) return;
         const opener = document.activeElement as HTMLElement | null;
-        const frame = requestAnimationFrame(() => document.querySelector<HTMLButtonElement>('.assay-drawer button')?.focus({preventScroll:true}));
+        const frame = requestAnimationFrame(() => {
+            const drawer = document.querySelector<HTMLElement>('.assay-drawer');
+            drawer?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+            drawer?.querySelector<HTMLButtonElement>('button')?.focus({preventScroll:true});
+        });
         return () => {
             cancelAnimationFrame(frame);
             requestAnimationFrame(() => {
@@ -40,6 +44,7 @@ export function Workbench() {
         };
     }, [assaysOpen]);
     const [settingsOpen, setSettingsOpen] = useState(false);
+    const [dialogOpener, setDialogOpener] = useState<HTMLButtonElement | null>(null);
     const [quickSearch, setQuickSearch] = useState('');
     const [searchError, setSearchError] = useState('');
     const [narrow, setNarrow] = useState(true);
@@ -67,7 +72,7 @@ export function Workbench() {
                 requestAnimationFrame(() => returnFocus.current?.focus({ preventScroll: true }));
             }
             if (event.key === 'Tab' && narrow && !document.querySelector('dialog[open]')) {
-                const items = Array.from(panelRef.current?.querySelectorAll<HTMLElement>('button:not([disabled]), a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), summary') || []).filter(el => el.getClientRects().length);
+                const items = Array.from(panelRef.current?.querySelectorAll<HTMLElement>('button:not([disabled]), a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), summary') || []).filter(el => el.checkVisibility());
                 const first = items[0], last = items.at(-1);
                 if (event.shiftKey && document.activeElement === first) {
                     event.preventDefault();
@@ -469,10 +474,10 @@ export function Workbench() {
     const jobStatus = (job || jobNotice) && <div className={`job-status ${job?.status === 'failed' ? 'job-error' : ''}`} role="status"><div><strong>{job ? `${job.type === 'comparison' ? 'Structure alignment' : 'Substitution prior'} · ${job.status}` : 'Calculation update'}</strong><span>{jobNotice}</span></div>{activeJob ? <button onClick={() => void request<ClientJob>(`/api/jobs/${job!.id}`, { method: 'DELETE' }).then(setJob).catch(e => setJobNotice(explain(e)))}>Cancel</button> : <button disabled={working} onClick={() => void run(job?.type || 'comparison')}>Run again</button>}</div>;
     return (<main className={`instrument ${focusMode ? 'focus-mode' : ''}`}>
       <header className="topbar" inert={narrow && !!panel && !focusMode}>
-        <button className="brand" aria-label="Open investigation settings" onClick={() => setSettingsOpen(true)}><span className="brand-mark"><Icon name="molecule" width="23" height="23"/></span><span>signal<span className="brand-one">1</span></span></button>
+        <button className="brand" aria-label="Open investigation settings" onClick={e => { setDialogOpener(e.currentTarget); setSettingsOpen(true); }}><span className="brand-mark"><Icon name="molecule" width="23" height="23"/></span><span>signal<span className="brand-one">1</span></span></button>
         <span className="header-divider"/>
-        <button className="investigation-picker" onClick={() => setSettingsOpen(true)}><span className="eyebrow">INVESTIGATION</span><span>{state.title}<Icon name="down" width="14"/></span></button>
-        <div className="top-actions"><span className="save-status" role="status" title={saveStatus}><i className={saveStatus.startsWith('Saved') ? 'saved-dot' : 'saving-dot'}/><span>{saveStatus.startsWith('Saved') ? 'All changes saved' : saveStatus}</span></span><button className="brief-button" onClick={() => setBrief(true)}>Review brief <Icon name="arrow" width="16"/></button></div>
+        <button className="investigation-picker" onClick={e => { setDialogOpener(e.currentTarget); setSettingsOpen(true); }}><span className="eyebrow">INVESTIGATION</span><span>{state.title}<Icon name="down" width="14"/></span></button>
+        <div className="top-actions"><span className="save-status" role="status" title={saveStatus}><i className={saveStatus.startsWith('Saved') ? 'saved-dot' : 'saving-dot'}/><span>{saveStatus.startsWith('Saved') ? 'All changes saved' : saveStatus}</span></span><button className="brief-button" onClick={e => { setDialogOpener(e.currentTarget); setBrief(true); }}>Review brief <Icon name="arrow" width="16"/></button></div>
       </header>
       {recoverable && <div className="error-banner"><span>A local unsaved draft is available.</span><button onClick={() => { edit(recoverable); setRecoverable(null); }}>Restore local draft</button><button onClick={() => { try {
         localStorage.removeItem(`signal-draft-${saved.id}`);
@@ -488,7 +493,7 @@ export function Workbench() {
             <button aria-label="Open assay explorer" aria-expanded={assaysOpen && !focusMode} onClick={() => { setFocusMode(false); setAssaysOpen(!assaysOpen); }}><Icon name="assays"/><span>Assays</span></button>
             <button aria-label="Open research notebook" aria-pressed={panel === 'notebook' && !focusMode} onClick={() => openPanel('notebook')}><Icon name="notebook"/><span>Notebook</span>{(state.findings.length + state.panel.length) > 0 && <i className="rail-count">{state.findings.length + state.panel.length}</i>}</button>
           </div>
-          <div className="rail-secondary"><button aria-label="Sources and methods" aria-pressed={panel === 'sources' && !focusMode} onClick={() => openPanel('sources')}><Icon name="sources"/><span>Sources</span></button><button aria-label="Investigation settings" onClick={() => setSettingsOpen(true)}><Icon name="settings"/><span>Settings</span></button></div>
+          <div className="rail-secondary"><button aria-label="Sources and methods" aria-pressed={panel === 'sources' && !focusMode} onClick={() => openPanel('sources')}><Icon name="sources"/><span>Sources</span></button><button aria-label="Investigation settings" onClick={e => { setDialogOpener(e.currentTarget); setSettingsOpen(true); }}><Icon name="settings"/><span>Settings</span></button></div>
         </nav>
         <section className="canvas-workspace" inert={transitioning || (narrow && !!panel && !focusMode)}>
           <section className="molecular-stage" aria-label="Linked molecular workspace">
@@ -518,7 +523,7 @@ export function Workbench() {
         <aside ref={panelRef} className="context-panel" hidden={!panel || focusMode} inert={transitioning} role={narrow && panel && !focusMode ? 'dialog' : undefined} aria-modal={narrow && !!panel && !focusMode ? true : undefined} aria-label={panelTitle}><header className="context-heading"><span>{panelTitle}</span><button className="icon-button" aria-label="Close details panel" onClick={closePanel}><Icon name="close" width="17"/></button></header><div className="context-scroll"><div hidden={panel !== 'selection'}><SelectionPanel data={data} state={state} comparison={comparison} baseline={baseline} onVariant={chooseVariant} onNotebook={() => setPanel('notebook')} onAssays={() => { setAssaysOpen(true); if (narrow)
         setPanel(null); }} onPrior={() => void run('baseline')} busy={busy}/></div><div hidden={panel !== 'comparison'}><ComparisonPanel data={data} comparison={comparison} scope={scope} onScope={setScope} onRun={() => void run('comparison')} busy={busy}/>{jobStatus}</div><div hidden={panel !== 'notebook'}><Notebook key={saved.id} investigationId={saved.id} state={state} sequence={manifest.reference.sequence} onChange={edit} onVariant={chooseVariant}/></div><div hidden={panel !== 'sources'}><SourcesPanel data={data}/></div></div></aside>
       </div>
-      {settingsOpen && <Dialog title="Your investigation" onClose={() => setSettingsOpen(false)}><div className="settings-grid" inert={transitioning}><section><label>Saved investigations<select value={saved.id} disabled={working} onChange={e => void openInvestigation(e.target.value)}>{investigations.map(i => <option key={i.id} value={i.id}>{i.state.title}</option>)}</select></label><label>Title<input value={state.title} maxLength={120} onChange={e => edit({ ...state, title: e.target.value })}/></label><label>Research question<textarea value={state.question} maxLength={2000} onChange={e => edit({ ...state, question: e.target.value })}/></label><div className="dialog-actions"><button className="primary" disabled={working} onClick={() => void createInvestigation()}>New investigation</button><button disabled={working} onClick={() => void createInvestigation(true)}>Make a copy</button></div></section><section className="settings-import"><Icon name="sources" width="24" height="24"/><h3>Continue from an export</h3><p className="caption">Import an investigation bundle to restore its findings, experiment plan and reproducible calculations.</p><label>Import investigation JSON<input type="file" accept=".json,application/json" disabled={working} onChange={e => void importFile(e.target.files?.[0])}/></label><p className="caption">Saved locally on this computer. Source files and revisions are preserved with your work.</p></section></div></Dialog>}
-      {brief && <Dialog title="Investigation brief" onClose={() => setBrief(false)}><p className="caption">Your recorded reasoning, supporting selections, and experiment plan.</p><pre className="brief-text">{briefText(state)}</pre><div className="brief-actions"><button className="primary" onClick={() => void exportSaved('md')}>Export Markdown brief</button><button onClick={() => void exportSaved('csv')}>Export panel CSV</button><button onClick={() => void exportSaved('json')}>Export reproducibility JSON</button><button onClick={() => void exportSaved('mvsx')}>3D scene (.mvsx)</button></div><p className="caption">Exports include the saved revision, provenance and calculation context.</p></Dialog>}
+      {settingsOpen && <Dialog opener={dialogOpener} title="Your investigation" onClose={() => setSettingsOpen(false)}><div className="settings-grid" inert={transitioning}><section><label>Saved investigations<select value={saved.id} disabled={working} onChange={e => void openInvestigation(e.target.value)}>{investigations.map(i => <option key={i.id} value={i.id}>{i.state.title}</option>)}</select></label><label>Title<input value={state.title} maxLength={120} onChange={e => edit({ ...state, title: e.target.value })}/></label><label>Research question<textarea value={state.question} maxLength={2000} onChange={e => edit({ ...state, question: e.target.value })}/></label><div className="dialog-actions"><button className="primary" disabled={working} onClick={() => void createInvestigation()}>New investigation</button><button disabled={working} onClick={() => void createInvestigation(true)}>Make a copy</button></div></section><section className="settings-import"><Icon name="sources" width="24" height="24"/><h3>Continue from an export</h3><p className="caption">Import an investigation bundle to restore its findings, experiment plan and reproducible calculations.</p><label>Import investigation JSON<input type="file" accept=".json,application/json" disabled={working} onChange={e => void importFile(e.target.files?.[0])}/></label><p className="caption">Saved locally on this computer. Source files and revisions are preserved with your work.</p></section></div></Dialog>}
+      {brief && <Dialog opener={dialogOpener} title="Investigation brief" onClose={() => setBrief(false)}><p className="caption">Your recorded reasoning, supporting selections, and experiment plan.</p><pre className="brief-text">{briefText(state)}</pre><div className="brief-actions"><button className="primary" onClick={() => void exportSaved('md')}>Export Markdown brief</button><button onClick={() => void exportSaved('csv')}>Export panel CSV</button><button onClick={() => void exportSaved('json')}>Export reproducibility JSON</button><button onClick={() => void exportSaved('mvsx')}>3D scene (.mvsx)</button></div><p className="caption">Exports include the saved revision, provenance and calculation context.</p></Dialog>}
     </main>);
 }
